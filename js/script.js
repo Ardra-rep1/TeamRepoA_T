@@ -16,12 +16,12 @@ if (data.trim() == "") {
 }
 // function for the description validation 
 
-     function descriptionvalidate(data){
+      function descriptionvalidate(data){
         if(data.trim()=="")
         {
            
 
-            mgsDisplay.style.displap = 'block';
+            msgDisplay.style.display = 'block';
             msgDisplay.innerHTML = 'Task Description cant be empty';
 
         }
@@ -29,7 +29,7 @@ if (data.trim() == "") {
             msgDisplay.style.display ='none';
           }
 
-    }
+    }  
     function nameValidation(data) {
         if (data.trim() == "") {
             msgDisplay.style.display ='block';
@@ -46,12 +46,11 @@ if (data.trim() == "") {
     function count_up(obj){
         document.getElementById('count1').innerHTML= obj.value.length;
 
-}
-
-newtaskForm.addEventListener('submit', (event) => {
-    event.PreventDefault();
+    }
+  newtaskForm.addEventListener('submit', (event) => {
+    event.preventDefault();
     
-    const taskName = document.querySelector("#newTask")
+    const taskName = document.querySelector("#newTaskName")
     const taskDescription = document.querySelector("#newTaskDescription");
     const taskDueDate = document.querySelector("#taskDueDate");
     
@@ -59,8 +58,15 @@ newtaskForm.addEventListener('submit', (event) => {
     const Description = taskDescription.value;
     const Date = taskDueDate.value;
 
-    event.nameValidation(Name);
-    event.descriptionvalidate(Description);
-    event.validatedate(Date);
-});
-
+    nameValidation(Name);
+    descriptionvalidate(Description);
+   
+})
+ 
+/* newtaskForm.addEventListener('submit', (event) => {
+    event.preventDefault();
+   const nameValue = document.querySelector('#taskName').value;
+    calling the checking for the name funciton 
+    nameValidation(nameValue);
+  })
+ */
