@@ -1,34 +1,33 @@
 const newtaskForm = document.querySelector('#formId');
-newtaskForm.addEventListener('submit', (event) => {
-    event.PreventDefault();
-    
-    const taskName = document.querySelector("#newTask")
-    const taskDescription = document.querySelector("#newTaskDescription");
-    const taskDueDate = document.querySelector("#taskDueDate");
-    
-    const Name =  taskName.value;
-    const Description = taskDescription.value;
-    const Date = taskDueDate.value;
-
-    event.
-    event.descriptionvalidate(Description);
-    event.validatedate(Date);
-});
 const msgDisplay = document.querySelector('#alertmessage');
 msgDisplay.style.display = 'none';
+
+// function for the name validation 
+function nameValidation(data) {
+if (data.trim() == "") {
+    msgDisplay.style.display ='block';
+    msgDisplay.innerHTML = 'Task Name Cant Be Empty';
+  } else if (isNaN(data) == false){
+    msgDisplay.style.display = 'block';
+    msgDisplay.innerHTML = 'Task Name Cannot Be Number ONLY!';
+  }else {
+    msgDisplay.style.display ='none';
+  }
+}
+// function for the description validation 
 
      function descriptionvalidate(data){
         if(data.trim()=="")
         {
-            document.getElementById('#alertmessage');
+           
 
-            mgsDisplay.style.visibility = 'visible';
+            mgsDisplay.style.displap = 'block';
             msgDisplay.innerHTML = 'Task Description cant be empty';
 
         }
-        else{
-            msgDisplay.style.display = none;
-        }
+        else {
+            msgDisplay.style.display ='none';
+          }
 
     }
     function nameValidation(data) {
@@ -49,7 +48,21 @@ msgDisplay.style.display = 'none';
 
 }
 
+newtaskForm.addEventListener('submit', (event) => {
+    event.PreventDefault();
+    
+    const taskName = document.querySelector("#newTask")
+    const taskDescription = document.querySelector("#newTaskDescription");
+    const taskDueDate = document.querySelector("#taskDueDate");
+    
+    const Name =  taskName.value;
+    const Description = taskDescription.value;
+    const Date = taskDueDate.value;
 
+    event.nameValidation(Name);
+    event.descriptionvalidate(Description);
+    event.validatedate(Date);
+});
 
 // code for  date string validation  
 
