@@ -3,6 +3,7 @@ const msgDisplay = document.querySelector('#alertmessage');
 msgDisplay.style.display = 'none';
 
 // function for the name validation 
+
 function nameValidation(data) {
 if (data.trim() == "") {
     msgDisplay.style.display ='block';
@@ -14,35 +15,48 @@ if (data.trim() == "") {
     msgDisplay.style.display ='none';
   }
 }
-// function for the description validation 
 
-      function descriptionvalidate(data){
-        if(data.trim()=="")
+// function for the AssignTo validation 
+    function AssigntoValidate(data){
+        if(data == "" || data == null)
         {
-           
-
             msgDisplay.style.display = 'block';
-            msgDisplay.innerHTML = 'Task Description cant be empty';
-
+            msgDisplay.innerHTML = 'Please Assign a Person for the task';
         }
         else {
-            msgDisplay.style.display ='none';
-          }
-
-    }  
-    function nameValidation(data) {
-        if (data.trim() == "") {
-            msgDisplay.style.display ='block';
-            msgDisplay.innerHTML = 'Task Name Cant Be Empty';
-          } else if (isNaN(data) == false){
-            msgDisplay.style.display = 'block';
-            msgDisplay.innerHTML = 'Task Name Cannot Be Number ONLY!';
-          }else {
-            msgDisplay.style.display ='none';
-          }
+                msgDisplay.style.display ='none';
         }
-        
 
+    }
+
+    // function for the status validation 
+         function statusValidate(data){
+        if(data == "" || data == null){
+            msgDisplay.style.display = 'block';
+            msgDisplay.innerHTML = 'Task status needs to be selected';
+        } 
+        else{
+            msgDisplay.style.display ='none';
+        }
+    } 
+// function for the description validation 
+
+        function descriptionValidate(data){
+        if(data.trim()==""|| data == null)
+        {
+            msgDisplay.style.display = 'block';
+            msgDisplay.innerHTML = 'Task Description cant be empty';
+        }
+        else {
+                msgDisplay.style.display ='none';
+        }
+
+        }   
+
+   
+
+    
+    
     function count_up(obj){
         document.getElementById('count1').innerHTML= obj.value.length;
 
@@ -50,23 +64,18 @@ if (data.trim() == "") {
   newtaskForm.addEventListener('submit', (event) => {
     event.preventDefault();
     
-    const taskName = document.querySelector("#newTaskName")
-    const taskDescription = document.querySelector("#newTaskDescription");
-    const taskDueDate = document.querySelector("#taskDueDate");
+    const taskName = document.querySelector("#newTaskName").value;
+    const taskDescription = document.querySelector("#newTaskDescription").value;
+    const taskAssignedTo = document.querySelector('#assinedTo').value;
+    const taskStatus = document.querySelector('#status').value;
+    // date validation is done in html
     
-    const Name =  taskName.value;
-    const Description = taskDescription.value;
-    const Date = taskDueDate.value;
+    
+    nameValidation(taskName);
+    AssigntoValidate(taskAssignedTo);
+    statusValidate(taskStatus);
+    descriptionValidate(taskDescription);
 
-    nameValidation(Name);
-    descriptionvalidate(Description);
    
-})
+});
  
-/* newtaskForm.addEventListener('submit', (event) => {
-    event.preventDefault();
-   const nameValue = document.querySelector('#taskName').value;
-    calling the checking for the name funciton 
-    nameValidation(nameValue);
-  })
- */
