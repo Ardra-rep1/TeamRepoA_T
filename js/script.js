@@ -31,7 +31,7 @@ if (data.trim() == "") {
 
     // function for the status validation 
          function statusValidate(data){
-             console.log(data);
+            
         if(data == "" || data == null){
             msgDisplay.style.display = 'block';
             msgDisplay.innerHTML = 'Task status needs to be selected';
