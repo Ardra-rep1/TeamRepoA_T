@@ -1,0 +1,19 @@
+main{
+    border: solid black 1px;
+    background-color: azure;
+    padding-left: 20em;
+    padding-bottom: 1em;
+    margin:20px;
+
+}
+
+form{
+    padding: 5em;
+    line-height: 4em;
+}
+.flex{
+    display:flex;
+    align-items: center;
+
+}
+

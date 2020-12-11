@@ -18,7 +18,7 @@ if (data.trim() == "") {
 
 // function for the AssignTo validation 
     function AssigntoValidate(data){
-        if(data == "" || data == null)
+        if(data == "")
         {
             msgDisplay.style.display = 'block';
             msgDisplay.innerHTML = 'Please Assign a Person for the task';
@@ -87,10 +87,7 @@ if (data.trim() == "") {
     // date validation is done in html
     
     
-    nameValidation(taskName);
-    AssigntoValidate(taskAssignedTo);
-    statusValidate(taskStatus);
-    descriptionValidate(taskDescription);
+    
 
    
 });
