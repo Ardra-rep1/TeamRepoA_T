@@ -53,7 +53,7 @@ if (data.trim() == "") {
            }
            else if(data == "DONE"){
             msgDisplay.style.display = 'block';
-            msgDisplay.innerHTML ='Task is finished';
+            msgDisplay.innerHTML ='Task is Done';
        }
 
 
