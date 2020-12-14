@@ -9,13 +9,13 @@ msgDisplay.style.display = 'none';
     }
   newtaskForm.addEventListener('submit', (event) => {
     event.preventDefault();
-    msgDisplay.innerHTML = '';
+    
     const taskName = document.querySelector("#newTaskName");
     const taskDescription = document.querySelector("#newTaskDescription");
     const taskAssignedTo = document.querySelector('#assignedTo');
     const taskStatus = document.querySelector('#status');
     const taskDueDate = document.querySelector('#taskDueDate');
-   
+    msgDisplay.innerHTML = '';
     
     validateInputs(taskName);
     validateInputs(taskDueDate);
@@ -38,8 +38,14 @@ if(dataValue.trim()== ""|| dataValue == null)
 
     errorMsg.innerHTML= `${data.name.toUpperCase()} cant be empty`;
     msgDisplay.appendChild(errorMsg);
+   
+   
     
 
+}
+else 
+{
+    msgDisplay.style.display = 'none';
 }
 
 }   
