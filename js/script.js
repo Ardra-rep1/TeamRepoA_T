@@ -3,20 +3,18 @@ const msgDisplay = document.querySelector('#alertmessage');
 msgDisplay.style.display = 'none';
 
       
-// function for the description validation 
-    
     function count_up(obj){
         document.getElementById('count1').innerHTML= obj.value.length;
 
     }
   newtaskForm.addEventListener('submit', (event) => {
     event.preventDefault();
-    
+    msgDisplay.innerHTML = '';
     const taskName = document.querySelector("#newTaskName");
     const taskDescription = document.querySelector("#newTaskDescription");
-    const taskAssignedTo = document.querySelector('#assinedTo');
+    const taskAssignedTo = document.querySelector('#assignedTo');
     const taskStatus = document.querySelector('#status');
-    const taskDueDate = document.querySelector('#taskDuedate');
+    const taskDueDate = document.querySelector('#taskDueDate');
    
     
     validateInputs(taskName);
