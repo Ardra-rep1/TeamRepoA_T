@@ -22,7 +22,7 @@
     
     <div class="form-group flex">
         <label for="formGroupExampleInput">Task</label>
-        <input type="text" class="form-control" id="newTaskName" placeholder="Task Name">
+        <input type="text" class="form-control" id="newTaskName" name="Task Name" placeholder="Task Name">
     </div>
 
     </div>
@@ -30,7 +30,7 @@
    <div class="flex assign-date">
     <div class="form-group assign-field ">
         <label for="exampleFormControlSelect1">Assign To</label>
-        <select class="form-control" id="assinedTo"  name="assignedTo" value="assignedTo">
+        <select class="form-control" id="assinedTo" name="Assigned To" value="assignedTo">
            
             <option value="" selected>Pick SomeOne</option>
             <option>Tek</option>
@@ -41,14 +41,14 @@
     </div>
        
         <div class="date">
-        <input type="date" id="taskDueDate" name="due_Date" class="datepicker" min="2020-12-10" max="2021-12-31">
+        <input type="date" id="taskDueDate" name="Due Date" class="datepicker" min="2020-12-10" max="2021-12-31">
        
         </div>
         </div>
 
         <div class="form-group status">
             <label for="exampleFormControlSelect1"> Status </label>
-            <select class="form-control" id="status" name="status">
+            <select class="form-control" id="status" name="Status">
                 <option value="">Choose the Task Status</option>
                 <option value="TO DO">TO DO </option>
                 <option value="PROGRESS">PROGRESS</option>
@@ -58,7 +58,7 @@
 
             <div class="form-group text-box">
                 <label for="exampleFormControlTextarea1">Task Description</label>
-                <textarea class="form-control" id="newTaskDescription" rows="12" onkeyup="count_up(this);" placeholder="Description"> </textarea>
+                <textarea class="form-control" id="newTaskDescription" name="Task Description" rows="12" onkeyup="count_up(this);" placeholder="Description"> </textarea>
                 <span class="text-muted pull-right" id="count1">0</span>
                 <br>
             </div>
@@ -68,8 +68,7 @@
     <button type="submit" class="btn btn-success">SAVE</button>
     <button type="button" class="btn btn-success">ADD NEXT</button>
 </div>
-<div id='successmessage' class="alert alert-success"></div>
-    </div>
+
 </form>
 
 </main>
