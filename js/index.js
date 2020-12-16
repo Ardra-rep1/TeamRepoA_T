@@ -38,15 +38,12 @@ if(dataValue.trim()== ""|| dataValue == null)
 
     errorMsg.innerHTML= `${data.name.toUpperCase()} cant be empty`;
     msgDisplay.appendChild(errorMsg);
-   
-   
-    
 
 }
 else 
 {
     msgDisplay.style.display = 'none';
-}
+} 
 
 }   
 
