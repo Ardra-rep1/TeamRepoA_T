@@ -1,3 +1,7 @@
+
+
+
+
 // TaskManager class
 class TaskManager {
 
@@ -10,7 +14,7 @@ class TaskManager {
     addTask(tName, tAssignedTo, tDescription, tDueDate) {
         const task = {
             // the currentId property
-        
+
             name: tName,
             dueDate: tDueDate,
             assignedTo: tAssignedTo,
@@ -18,10 +22,10 @@ class TaskManager {
             status: 'TO DO'
 
         };
-         
-           
-        
-    
+
+        this.tasks.push(task);
+
+
     }
 
 }
