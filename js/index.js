@@ -20,21 +20,27 @@ msgDisplay.style.display = 'none';
     const taskDueDate = document.querySelector('#taskDueDate');
     
     msgDisplay.innerHTML = '';
+   
+        validateInputs(taskName);
+        validateInputs(taskDueDate);
+        validateInputs(taskAssignedTo);
+        validateInputs(taskStatus);
+        validateInputs(taskDescription);
     
-    validateInputs(taskName);
-    validateInputs(taskDueDate);
-    validateInputs(taskAssignedTo);
-    validateInputs(taskStatus);
-    validateInputs(taskDescription);
+      // checking the object is not empty & Add the task to the task manager
 
-    validInputCheck(data);
+        taskManager.addTask(taskName.value, taskAssignedTo.value, taskDescription.value, taskDueDate.value);
+   
+ //  validInputCheck(data);
     
     
     // Clear the form
-    taskName.value = '';
+
+
+     taskName.value = '';
     taskDescription.value = '';
     taskAssignedTo.value = '';
-    taskDueDate.value = '';
+    taskDueDate.value = ''; 
     
 
    
@@ -55,20 +61,12 @@ if(dataValue.trim()== ""|| dataValue == null)
    
     return false;
 }
+else 
+{
+    msgDisplay.style.display = 'none';
+
+}
 
 }  
-let flag = validateInputs(data);
-function validInputCheck(flag){
-    if(!flag)
-    {
-        const taskName = document.querySelector("#newTaskName");
-        const taskDescription = document.querySelector("#newTaskDescription");
-        const taskAssignedTo = document.querySelector('#assignedTo');
-        const taskStatus = document.querySelector('#status');
-        const taskDueDate = document.querySelector('#taskDueDate');
-    // Add the task to the task manager
-        taskManager.addTask(taskName.value,taskAssignedTo.value,taskDescription.value,taskDueDate.value);
-    }
-}
 
  
