@@ -58,7 +58,7 @@ newtaskForm.addEventListener('submit', (event) => {
 function validateInputs(data) {
     let dataValue = data.value;
     let errorMsg;
-<<<<<<< HEAD
+
 if(dataValue.trim()== ""|| dataValue == null)
 {
     msgDisplay.style.display = 'block';
@@ -72,27 +72,6 @@ else
 {
     msgDisplay.style.display = 'none';
 } 
-=======
-    if (dataValue.trim() == "" || dataValue == null) {
-        msgDisplay.style.display = 'block';
-        errorMsg = document.createElement('div');
-         errorMsg.innerHTML = `${data.name.toUpperCase()} cant be empty`;
-        msgDisplay.appendChild(errorMsg);
-        return  false;
-    
-        
-   
-    }
+
+
 }
->>>>>>> 567e3dddb4b24a4269a5e98a36ed90b1e47b8cc7
-
-
-
-/*if (returnNameBoolean == true && returnDateBoolean == true && returnAssignedBoolean == true && returnDescriptBoolean == true) {
-    // Clear the form
-    taskName.value = '';
-    taskDescription.value = '';
-    taskAssignedTo.value = '';
-    taskDueDate.value = '';
-    taskManager.addTask(taskName.value, taskAssignedTo.value, taskDescription.value, taskDueDate.value);
-    */
