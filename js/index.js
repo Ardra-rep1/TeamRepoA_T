@@ -32,7 +32,7 @@ newtaskForm.addEventListener('submit', (event) => {
      let  vnc = validateInputs(taskName);
       let vddc =validateInputs(taskDueDate);
      let vac = validateInputs(taskAssignedTo);
-      validateInputs(taskStatus);
+     validateInputs(taskStatus);
      let vdc=validateInputs(taskDescription);
    
       if ( !(vnc == false) && !(vddc == false) && !(vac == false) && !(vdc == false)){
@@ -66,11 +66,13 @@ if(dataValue.trim()== ""|| dataValue == null)
 
     errorMsg.innerHTML= `${data.name.toUpperCase()} cant be empty`;
     msgDisplay.appendChild(errorMsg);
+    return false;
 
 }
 else 
 {
     msgDisplay.style.display = 'none';
+    
 } 
 
 
