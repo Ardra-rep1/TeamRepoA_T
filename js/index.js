@@ -31,8 +31,7 @@ msgDisplay.style.display = 'none';
 
         taskManager.addTask(taskName.value, taskAssignedTo.value, taskDescription.value, taskDueDate.value);
    
- //  validInputCheck(data);
-    
+ // 
     
     // Clear the form
 
@@ -59,7 +58,7 @@ if(dataValue.trim()== ""|| dataValue == null)
     errorMsg.innerHTML= `${data.name.toUpperCase()} cant be empty`;
     msgDisplay.appendChild(errorMsg);
    
-    return false;
+    // return false;
 }
 else 
 {
