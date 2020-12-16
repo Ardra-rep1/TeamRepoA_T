@@ -29,9 +29,9 @@ newtaskForm.addEventListener('submit', (event) => {
     
 
     
-     let  vnc = validateInputs(taskName);
+      let  vnc = validateInputs(taskName);
       let vddc =validateInputs(taskDueDate);
-     let vac = validateInputs(taskAssignedTo);
+     let vac = validateInputs(taskAssignedTo); 
      validateInputs(taskStatus);
      let vdc=validateInputs(taskDescription);
    
@@ -46,11 +46,6 @@ newtaskForm.addEventListener('submit', (event) => {
     taskDescription.value = '';
     taskAssignedTo.value = '';
     taskDueDate.value = '';
-
-    
-
-
-
 
 });
 
