@@ -7,15 +7,16 @@ const newtaskForm = document.querySelector('#formId');
 const msgDisplay = document.querySelector('#alertmessage');
 msgDisplay.style.display = 'none';
 
-      
-    function count_up(obj){
-        document.getElementById('count1').innerHTML= obj.value.length;
 
-    }
-  newtaskForm.addEventListener('submit', (event) => {
+function count_up(obj) {
+    document.getElementById('count1').innerHTML = obj.value.length;
+
+}
+newtaskForm.addEventListener('submit', (event) => {
     event.preventDefault();
 
-
+    msgDisplay.innerHTML = '';
+    
 
     const taskName = document.querySelector("#newTaskName");
     const taskDescription = document.querySelector("#newTaskDescription");
@@ -23,21 +24,24 @@ msgDisplay.style.display = 'none';
     const taskStatus = document.querySelector('#status');
     const taskDueDate = document.querySelector('#taskDueDate');
 
+     
+
     
 
-    msgDisplay.innerHTML = '';
     
-    validateInputs(taskName);
-    validateInputs(taskDueDate);
-    validateInputs(taskAssignedTo);
-    validateInputs(taskStatus);
-    validateInputs(taskDescription);
+     let  vnc = validateInputs(taskName);
+      let vddc =validateInputs(taskDueDate);
+     let vac = validateInputs(taskAssignedTo);
+      validateInputs(taskStatus);
+     let vdc=validateInputs(taskDescription);
+   
+      if ( !(vnc == false) && !(vddc == false) && !(vac == false) && !(vdc == false)){
+          
+          taskManager.addTask(taskName.value, taskAssignedTo.value, taskDescription.value, taskDueDate.value);
+          
+      }
+       
 
-
-    validInputCheck(data);
-    
-    
-    // Clear the form
     taskName.value = '';
     taskDescription.value = '';
     taskAssignedTo.value = '';
@@ -45,51 +49,34 @@ msgDisplay.style.display = 'none';
 
     
 
-   
+
+
+
 });
 
 
-function validateInputs(data){
+function validateInputs(data) {
     let dataValue = data.value;
     let errorMsg;
-
-if(dataValue.trim()== ""|| dataValue == null)
-{
-    msgDisplay.style.display = 'block';
-    errorMsg = document.createElement('div');
-
-    errorMsg.innerHTML= `${data.name.toUpperCase()} cant be empty`;
-    msgDisplay.appendChild(errorMsg);
+    if (dataValue.trim() == "" || dataValue == null) {
+        msgDisplay.style.display = 'block';
+        errorMsg = document.createElement('div');
+         errorMsg.innerHTML = `${data.name.toUpperCase()} cant be empty`;
+        msgDisplay.appendChild(errorMsg);
+        return  false;
+    
+        
    
-
-    return false;
-}
-
-}  
-let flag = validateInputs(data);
-function validInputCheck(flag){
-    if(!flag)
-    {
-        const taskName = document.querySelector("#newTaskName");
-        const taskDescription = document.querySelector("#newTaskDescription");
-        const taskAssignedTo = document.querySelector('#assignedTo');
-        const taskStatus = document.querySelector('#status');
-        const taskDueDate = document.querySelector('#taskDueDate');
-    // Add the task to the task manager
-        taskManager.addTask(taskName.value,taskAssignedTo.value,taskDescription.value,taskDueDate.value);
     }
 }
 
-   
-    
-
-}
-else 
-{
-    msgDisplay.style.display = 'none';
-}
-
-}   
 
 
- 
+/*if (returnNameBoolean == true && returnDateBoolean == true && returnAssignedBoolean == true && returnDescriptBoolean == true) {
+    // Clear the form
+    taskName.value = '';
+    taskDescription.value = '';
+    taskAssignedTo.value = '';
+    taskDueDate.value = '';
+    taskManager.addTask(taskName.value, taskAssignedTo.value, taskDescription.value, taskDueDate.value);
+    */
