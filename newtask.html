@@ -21,7 +21,7 @@
 <form id="formId">
     
     <div class="form-group flex">
-        <label for="formGroupExampleInput">Task</label>
+        <label for="newTaskName">Task</label>
         <input type="text" class="form-control" id="newTaskName" name="Task Name" placeholder="Task Name">
     </div>
 
@@ -29,7 +29,7 @@
     
    <div class="flex assign-date">
     <div class="form-group assign-field ">
-        <label for="exampleFormControlSelect1">Assign To</label>
+        <label for="assignedTo">Assign To</label>
         <select class="form-control" id="assignedTo" name="Assigned To" value="assignedTo">
            
             <option value="" selected>Pick SomeOne</option>
@@ -47,7 +47,7 @@
         </div>
 
         <div class="form-group status">
-            <label for="exampleFormControlSelect1"> Status </label>
+            <label for="status"> Status </label>
             <select class="form-control" id="status" name="Status">
                 <option value="">Choose the Task Status</option>
                 <option value="TO DO">TO DO </option>
@@ -57,7 +57,7 @@
             </select>
 
             <div class="form-group text-box">
-                <label for="exampleFormControlTextarea1">Task Description</label>
+                <label for="newTaskDescription">Task Description</label>
                 <textarea class="form-control" id="newTaskDescription" name="Task Description" rows="12" onkeyup="count_up(this);" placeholder="Description"> </textarea>
                 <span class="text-muted pull-right" id="count1">0</span>
                 <br>
@@ -89,6 +89,9 @@
     crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" 
     integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <script src="js/script.js"></script> 
+    
+    <script src="js/taskManager.js"></script> 
+    <script src="js/index.js"></script> 
+
 </body>
 </html>
