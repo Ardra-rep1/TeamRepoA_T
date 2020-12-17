@@ -69,11 +69,6 @@ function taskFilterPush(vnc, vddc, vac, vdc) {
     }
 
 }
-else 
-{
-    msgDisplay.style.display = 'none';
-    
-} 
 
 
 // Function to clear the input field after the submit button is pressed 
