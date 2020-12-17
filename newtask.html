@@ -62,7 +62,7 @@
                 <span class="text-muted pull-right" id="count1">0</span>
                 <br>
             </div>
-            <div id='alertmessage' class="alert alert-danger" style="display:hidden;"></div>
+            <div id='alertmessage' class="alert alert-danger container" style="display:hidden; ;"></div>
 
 <div class="flex-button">
     <button type="submit" class="btn btn-success">SAVE</button>
@@ -71,10 +71,36 @@
 
 </form>
 
-<section id="taskDisplay">
-    <ul id="taskDisplayList">
 
-    </ul> 
+
+<section class='container'>
+    
+    <ul id="taskDisplayList" class="list-inline row">
+        <li class="list-inline-item col-9" >
+            <h3>Card Example </h3>
+            <div class="card text-left mt-3 text-muted " id="newtaskCard">
+                <div class="card-header h4 text-primary">
+                    This Field Display whom the task Assign to 
+                </div>
+                <div class="card-body">
+                    <h4 class="card-title mark">Here we can find the task name </h4>
+                    <p class="card-text "> Task Discripton is here  </p>
+                   
+                </div>
+                
+                <div class="card-footer text-muted">
+                     Remaining Date is here 
+                </div>
+                
+            </div>
+
+           
+           </li>
+
+    </ul>  
+    </div>
+
+    </div>
 
 </section>
 

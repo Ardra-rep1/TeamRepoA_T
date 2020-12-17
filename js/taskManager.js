@@ -21,25 +21,35 @@ class TaskManager {
         // Push the task to the tasks array
         this.tasks.push(task);
     }
+
+    //function to render the tasks array on the screen 
+
+    render(){
+        // query selecting the task display ul 
+        const newCardPlace = document.querySelector('#taskDisplayList');
+        const cardCopy = document.querySelector('#newtaskCard');
+        newCardPlace.innerHTML = "";
+
+        this.tasks.forEach(task => {
+            
+              const cardCopyClone = cardCopy.cloneNode(true);
+              
+               cardCopyClone.children[0].innerText =  `Assignee:  ${ task.assignedTo } `;
+
+            
+                cardCopyClone.children[1].firstElementChild.innerText = `Task Name:  ${task.name}`;
+                cardCopyClone.children[1].children[1].innerText = `Task Discription:  ${task.description}`;
+
+                cardCopyClone.children[2].innerText= `Due Date: ${task.dueDate}`;
+                 let newLi = document.createElement('li');
+                newLi.appendChild(cardCopyClone);
+            newLi.className ='list-inline-item col-10';
+
+                newCardPlace.appendChild(newLi);
+            }
+            
+            )
+
+    }
 }
 
-//Task Class to create a card to display added as a new task
-
-function createNewTaskCard(){
-
-
-    
-}
-<div class="card text-center">
-    <div class="card-header">
-        Featured
-  </div>
-    <div class="card-body">
-        <h5 class="card-title">Special title treatment</h5>
-        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
-    </div>
-    <div class="card-footer text-muted">
-        2 days ago
-  </div>
-</div>
