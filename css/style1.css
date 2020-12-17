@@ -1,5 +1,5 @@
 
-.container{
+main{
     
     background-color: azure;
     padding-left: 20em;
@@ -14,8 +14,8 @@
 }
 
 .assign-field{
-  display: flex;  
-    width: 30%;
+    display: flex;
+    width: 40%;
 }
 form{
     padding: 2em;
@@ -23,7 +23,6 @@ form{
 }
 
 .flex{
-    width:80%;
     display:flex;
     align-items: center;
 
@@ -49,10 +48,9 @@ label{
     margin-right: 1em;
 }
 
- .assign-date{
-
+.assign-date{
     justify-content: space-between;
-} 
+}
 
 button{
     width: 200px;
