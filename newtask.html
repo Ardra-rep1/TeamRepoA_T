@@ -31,15 +31,42 @@
                         <a href="#TaskDashboard" class="nav-link">Task Dashboard</a>
                     </li>
 
-                </ul>
-            </div>
-        </nav>
+                  
+    <div class="jumbotron jumbotron-fluid text-center">
+        <div class="container">
+            <h1 class="display-4"> Task Sheet </h1>
+            <p class="lead">Please enter the detail for the new task </p>
+        </div>
+    </div>
 
-        <div class="jumbotron jumbotron-fluid text-center">
-            <div class="container">
-                <h1 class="display-4"> Task Sheet </h1>
-                <p class="lead">Please enter the detail for the new task </p>
-            </div>
+<main class="container ">   
+<form id="formId">
+    
+    <div class="form-group flex">
+        <label for="newTaskName">Task</label>
+        <input type="text" class="form-control" id="newTaskName" name="Task Name" placeholder="Task Name">
+    </div>
+
+    </div>
+    
+   <div class="flex assign-date">
+    <div class="form-group assign-field ">
+        <label for="assignedTo">Assign To</label>
+        <select class="form-control" id="assignedTo" name="Assigned To" value="assignedTo">
+           
+            <option value="" selected>Pick SomeOne</option>
+            <option>Tek</option>
+            <option>Arda</option>
+            <option>Max</option>
+            
+        </select>
+    </div>
+       
+        <div class="date">
+        <input type="date" id="taskDueDate" name="Due Date" class="datepicker" min="2020-12-10" max="2021-12-31">
+       
+        </div>
+
         </div>
     </header>
     <main class="container">
@@ -50,6 +77,9 @@
                 <input type="text" class="form-control" id="newTaskName" name="Task Name" placeholder="Task Name">
             </div>
 
+            <div id='alertmessage' class="alert alert-danger container" style="display:hidden; ;"></div>
+
+
             </div>
 
             <div class="flex assign-date">
@@ -57,10 +87,42 @@
                     <label for="assignedTo">AssignTo</label>
                     <select class="form-control" id="assignedTo" name="Assigned To" value="assignedTo">
 
-                        <option value="" selected>Pick SomeOne</option>
-                        <option>Tek</option>
-                        <option>Arda</option>
-                        <option>Max</option>
+
+
+
+<section class='container'>
+    
+    <ul id="taskDisplayList" class="list-inline row">
+        <li class="list-inline-item col-9" >
+            <h3>Card Example </h3>
+            <div class="card text-left mt-3 text-muted " id="newtaskCard">
+                <div class="card-header h4 text-primary">
+                    This Field Display whom the task Assign to 
+                </div>
+                <div class="card-body">
+                    <h4 class="card-title mark">Here we can find the task name </h4>
+                    <p class="card-text "> Task Discripton is here  </p>
+                   
+                </div>
+                
+                <div class="card-footer text-muted">
+                     Remaining Date is here 
+                </div>
+                
+            </div>
+
+           
+           </li>
+
+    </ul>  
+    </div>
+
+    </div>
+
+</section>
+
+</main>
+
 
                     </select>
                 </div>
