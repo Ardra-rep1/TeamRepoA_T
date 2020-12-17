@@ -47,7 +47,7 @@ class TaskManager {
             cardCopyClone.children[2].innerText = `Due Date: ${task.dueDate}`;
             let newLi = document.createElement('li');
             newLi.appendChild(cardCopyClone);
-            newLi.className = 'list-inline-item col-10';
+            newLi.className = 'list-inline-item col-9';
 
             newCardPlace.appendChild(newLi);
         }
