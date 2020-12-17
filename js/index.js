@@ -24,10 +24,6 @@ newtaskForm.addEventListener('submit', (event) => {
     const taskStatus = document.querySelector('#status');
     const taskDueDate = document.querySelector('#taskDueDate');
 
-     
-
-    
-
     
       let  vnc = validateInputs(taskName);
       let vddc =validateInputs(taskDueDate);
@@ -46,6 +42,7 @@ newtaskForm.addEventListener('submit', (event) => {
     taskDescription.value = '';
     taskAssignedTo.value = '';
     taskDueDate.value = '';
+
 
 });
 
@@ -71,4 +68,7 @@ else
 } 
 
 
+
+
 }
+
