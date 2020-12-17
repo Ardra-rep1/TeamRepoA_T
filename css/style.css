@@ -1,26 +1,38 @@
  
+
  .container{
       width:60%;
+
+ 
+ body{
+        background-color:azure;
+
  }
  
  .btn{
-    width:20%; 
+    width:40%; 
 }
 
 
 .card{
+    
+      background-color: rgb(191, 228, 253);
       margin-bottom: 2em;
 
 
 }
 footer{
       margin-top: 20px;
-      background-color: black;
+      background-color: rgb(14, 32, 46);
       color: white;
       text-align: center ;
 }
 
 
-#more{display: none;}
 
+.btnnew{
+
+      background-color:rgb(169, 223, 178);
+      width: 15%;;
+}
 

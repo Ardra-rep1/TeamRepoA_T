@@ -24,6 +24,7 @@ newtaskForm.addEventListener('submit', (event) => {
 
     msgDisplay.innerHTML = '';
 
+
     let vnc = validateInputs(taskName);
     let vddc = validateInputs(taskDueDate);
     let vac = validateInputs(taskAssignedTo);
@@ -38,6 +39,7 @@ newtaskForm.addEventListener('submit', (event) => {
         taskInputRefresh(taskName, taskDescription, taskAssignedTo, taskDueDate)
         taskManager.render();
 
+
     }
 });
 
@@ -47,6 +49,7 @@ newtaskForm.addEventListener('submit', (event) => {
 function validateInputs(data) {
     let dataValue = data.value;
     let errorMsg;
+
     if (dataValue.trim() == "" || dataValue == null) {
         msgDisplay.style.display = 'block';
         errorMsg = document.createElement('div');
@@ -64,10 +67,17 @@ function taskFilterPush(vnc, vddc, vac, vdc) {
     } else {
         return false;
     }
+
 }
+else 
+{
+    msgDisplay.style.display = 'none';
+    
+} 
 
 
 // Function to clear the input field after the submit button is pressed 
+
 
 function taskInputRefresh(taskName, taskDescription, taskAssignedTo, taskDueDate) {
     taskName.value = '';
@@ -75,6 +85,7 @@ function taskInputRefresh(taskName, taskDescription, taskAssignedTo, taskDueDate
     taskAssignedTo.value = '';
     taskDueDate.value = '';
 }
+
 
 
 
