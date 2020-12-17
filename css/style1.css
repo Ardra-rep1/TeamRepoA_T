@@ -1,8 +1,9 @@
 main{
-    border: solid black 1px;
+    
     background-color: azure;
     padding-left: 20em;
     padding-bottom: 1em;
+    width : 75% !important;
 
 
 }
@@ -60,4 +61,8 @@ button{
     justify-content: space-evenly;
 } 
 
+
+#alertmessage{
+    width: 130%;
+}
 
