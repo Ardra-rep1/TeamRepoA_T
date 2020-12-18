@@ -81,7 +81,7 @@ class TaskManager {
 
             cardCopyClone.children[1].firstElementChild.innerText = `${task.name}`;
             cardCopyClone.children[1].children[1].innerText = `${task.description}`;
-
+            cardCopyClone.children[1].children[3].id = `${task.id}`;
             cardCopyClone.children[2].children[0].innerText = `Due Date: ${formattedDate} `;
             cardCopyClone.children[2].children[1].innerText = `Remaining Days: ${remainingDays}`;
 
