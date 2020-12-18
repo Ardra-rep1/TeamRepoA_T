@@ -82,6 +82,33 @@ function taskInputRefresh(taskName, taskDescription, taskAssignedTo, taskDueDate
     taskDueDate.value = '';
 }
 
+const tasksList = document.querySelector('#taskDisplayList');
+
+tasksList.addEventListener('click', (ev) => {
+    ev.preventDefault();
+
+    if (ev.target.classList.contains('done-button')) {
+
+        const parentTask = ev.target.parentElement;
+       // console.log(parentTask);
+
+
+        const taskId = Number(parentTask.id);
+     //   console.log(taskId); correct up to this point
+        
+      
+        const task = taskManager.getTaskId(taskId);
+
+       /// console.log(task);
+        //console.log(task);
+        task.status = 'DONE';
+
+
+        taskManager.render();
+    }
+});
+
+
 
 
 

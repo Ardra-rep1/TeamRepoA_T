@@ -9,19 +9,16 @@ class TaskManager {
   }
   // the addTask method
 
-  addTask(tName, tAssignedTo, tDescription, tDueDate) {
-    const task = {
-      // the currentId property
-      id : this.currentId,
-      name: tName,
-      dueDate: tDueDate, 
-      assignedTo: tAssignedTo,
-      description: tDescription,
-      status: "TO DO",
-    };
-
-   
-
+    addTask(tName, tAssignedTo, tDescription, tDueDate) {
+        const task = {
+            // the currentId property
+            id: this.currentId++,
+            name: tName,
+            dueDate: tDueDate,
+            assignedTo: tAssignedTo,
+            description: tDescription,
+            status: 'TO DO'
+        };
     this.tasks.push(task);
 
    
@@ -29,8 +26,29 @@ class TaskManager {
 
   
 
+
+    
+    getTaskId(taskId) {
+
+        let foundTaskId;
+        for (let i = 0; i < this.tasks.length; i++) {
+
+            const task = this.tasks[i];
+
+            if (task.id == taskId) {
+
+                foundTaskId = task;
+            }
+        }
+
+        return foundTaskId;
+    }
+
+
+
   
   // Function to formate the date 
+
 
   dueDateFormate(dueDate){
      const taskdueDate = new Date(dueDate);
@@ -40,6 +58,7 @@ class TaskManager {
    return formattedDate;
 }
 
+    
 
 // function to return the remaining days 
 
@@ -52,6 +71,13 @@ remainingDays(dueDate){
   const currentDateMonth = currentDate.getMonth() + 1;
   const currentDateYear = currentDate.getFullYear();
 
+
+            
+            
+
+        }
+        
+
   // due Date data 
 
   const taskdueDate = new Date(dueDate);
@@ -62,7 +88,12 @@ remainingDays(dueDate){
 
 
 
+
+
+    }
+
   return `${dueDateDay - currentDateDay} Days ${dueDateMonth - currentDateMonth} Months ${dueDateYear - currentDateYear } Years Remaining`
+
 
 }
   
@@ -85,7 +116,7 @@ remainingDays(dueDate){
 
       cardCopyClone.children[1].firstElementChild.innerText = `${task.name}`;
       cardCopyClone.children[1].children[1].innerText = `${task.description}`;
-    
+      cardCopyClone.children[1].children[3].id = `${task.id}`;
       cardCopyClone.children[2].children[0].innerText = `Due Date: ${formattedDate} `;
       cardCopyClone.children[2].children[1].innerText = `Remaining Days: ${remainingDays}`;
       
@@ -97,5 +128,6 @@ remainingDays(dueDate){
       newCardPlace.appendChild(newLi);
     });
   }
+
 
  }

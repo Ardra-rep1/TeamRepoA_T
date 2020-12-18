@@ -24,7 +24,7 @@ body{
 }
 footer{
       margin-top: 20px;
-      background-color: rgb(14, 32, 46);
+      background-color: rgb(102, 182, 243);
       color: white;
       text-align: center ;
 }
@@ -34,6 +34,7 @@ footer{
 .btnnew{
 
       background-color:rgb(169, 223, 178);
-      width: 15%;;
+      width: 15%;
+     
 }
 
