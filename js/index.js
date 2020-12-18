@@ -112,6 +112,13 @@ tasksList.addEventListener('click', (ev) => {
 
 
 
+//priority & git 
+// Past dates fix the past dat
+//showing only remaining days.
+// we will focus on the styling later.
+
+// notification/ popup  for the urgent task 
+// improve the validation
 
 
 
