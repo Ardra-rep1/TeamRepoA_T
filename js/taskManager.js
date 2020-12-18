@@ -1,17 +1,16 @@
-// Reset point 
-
-// TaskManager class to add the task into Array
 
 class TaskManager {
-  constructor(currentId = 0) {
-    this.tasks = [];
-    this.currentId = currentId;
-  }
-  // the addTask method
+    constructor(currentId = 0) {
+        this.tasks = [];
+        this.currentId = currentId;
+    }
+    // the addTask method
+
 
     addTask(tName, tAssignedTo, tDescription, tDueDate) {
         const task = {
             // the currentId property
+
             id: this.currentId++,
             name: tName,
             dueDate: tDueDate,
@@ -23,11 +22,6 @@ class TaskManager {
 
    
   }
-
-  
-
-
-    
     getTaskId(taskId) {
 
         let foundTaskId;
@@ -43,6 +37,8 @@ class TaskManager {
 
         return foundTaskId;
     }
+
+
 
 
 
@@ -70,14 +66,8 @@ remainingDays(dueDate){
   const currentDateDay = currentDate.getDate();
   const currentDateMonth = currentDate.getMonth() + 1;
   const currentDateYear = currentDate.getFullYear();
-
-
-            
-            
-
-        }
+       // }
         
-
   // due Date data 
 
   const taskdueDate = new Date(dueDate);
@@ -85,17 +75,12 @@ remainingDays(dueDate){
   const dueDateDay = taskdueDate.getDate();
   const dueDateMonth = taskdueDate.getMonth() + 1;
   const dueDateYear  =  taskdueDate.getFullYear();
+    
+
+  return `${dueDateDay - currentDateDay} Days ${dueDateMonth - currentDateMonth} Months ${dueDateYear - currentDateYear } Years Remaining`;
 
 
-
-
-
-    }
-
-  return `${dueDateDay - currentDateDay} Days ${dueDateMonth - currentDateMonth} Months ${dueDateYear - currentDateYear } Years Remaining`
-
-
-}
+};
   
   //function to render the tasks array on the screen
 
@@ -116,6 +101,7 @@ remainingDays(dueDate){
 
       cardCopyClone.children[1].firstElementChild.innerText = `${task.name}`;
       cardCopyClone.children[1].children[1].innerText = `${task.description}`;
+      cardCopyClone.children[1].children[2].innerText = `Status: ${task.status}`;
       cardCopyClone.children[1].children[3].id = `${task.id}`;
       cardCopyClone.children[2].children[0].innerText = `Due Date: ${formattedDate} `;
       cardCopyClone.children[2].children[1].innerText = `Remaining Days: ${remainingDays}`;
@@ -129,5 +115,5 @@ remainingDays(dueDate){
     });
   }
 
+}
 
- }

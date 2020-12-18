@@ -65,6 +65,14 @@ button{
 #alertmessage{
     width: 130%;
 }
+.done-button{
+    float:right;
+}
+.card-footer{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
 
 .card-footer {
     display : flex;
