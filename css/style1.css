@@ -65,4 +65,7 @@ button{
 #alertmessage{
     width: 130%;
 }
+.done-button{
+    float:right;
+}
 
