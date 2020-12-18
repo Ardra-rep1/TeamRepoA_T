@@ -82,7 +82,7 @@ function taskInputRefresh(taskName, taskDescription, taskAssignedTo, taskDueDate
     taskDueDate.value = '';
 }
 
-
+const tasksList = document.querySelector('#taskDisplayList');
 tasksList.addEventListener('click', (ev) => {
     ev.preventDefault();
 
