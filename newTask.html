@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="css/style1.css">
     <title>New Task</title>
 </head>
+
 <body>
     <header>
         <nav class="navbar-light navbar-expand-sm bg-light text-muted">
@@ -33,13 +34,13 @@
             </div>
         </nav>
 
-   
-    <div class="jumbotron jumbotron-fluid text-center">
-        <div class="container">
-            <h1 class="display-4"> Task Sheet </h1>
-            <p class="lead">Please enter the detail for the new task </p>
+
+        <div class="jumbotron jumbotron-fluid text-center">
+            <div class="container">
+                <h1 class="display-4"> Task Sheet </h1>
+                <p class="lead">Please enter the detail for the new task </p>
+            </div>
         </div>
-    </div>
 
     </header>
     <main class="container ">
@@ -51,7 +52,7 @@
             </div>
             <div class="flex assign-date">
                 <div class="form-group assign-field ">
-                    <label for="assignedTo">Assign To</label>
+                    <label for="assignedTo">AssignTo</label>
                     <select class="form-control" id="assignedTo" name="Assigned To" value="assignedTo">
                         <option value="" selected>Pick SomeOne</option>
                         <option>Tek</option>
@@ -87,7 +88,7 @@
                 </div>
         </form>
         <section class='container'>
-            <ul id="taskDisplayList" class="list-inline row">
+            <ul id="taskDisplayList" class="list-inline row" style="display:hidden">
                 <li class="list-inline-item col-9">
                     <h3>Card Example </h3>
                     <div class="card text-left mt-3 text-muted " id="newtaskCard">
@@ -95,8 +96,12 @@
                             This Field Display whom the task Assign to
                         </div>
                         <div class="card-body">
-                            <h4 class="card-title mark">Here we can find the task name </h4>
-                            <p class="card-text "> Task Discripton is here </p>
+
+                            <h4 class="card-title mark">Here we can find the task name</h4>
+                            <p class="card-text"> Task Descripton is here </p>
+                            <span class="card-text">Status</span>
+                        <span class="card-id"><button class="btn btn-success done-button">Mark As Done</button></span>
+                          
                         </div>
                         <div class="card-footer text-muted">
                             Remaining Date is here
@@ -111,7 +116,7 @@
     <footer>
         Tek and Arda@&copy;
     </footer>
-   
+
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
         integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
         crossorigin="anonymous"></script>
@@ -123,12 +128,12 @@
         crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
         integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-            integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-            crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
-            crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
+        crossorigin="anonymous"></script>
     <script src="js/taskManager.js"></script>
     <script src="js/index.js"></script>
 </body>
