@@ -108,12 +108,29 @@ tasksList.addEventListener('click', (ev) => {
 
         taskManager.render();
     }
+    if (ev.target.classList.contains('delete-button')) {
+
+        
+        const parentTask = ev.target.parentElement;
+
+        const taskId = Number(parentTask.id);
+        console.log(taskId);
+        // Delete the task
+
+        taskManager.deleteTask(taskId);
+
+        // Save the tasks to localStorage
+      //  taskManager.save();
+
+        // Render the tasks
+        taskManager.render();
+    }
 });
 
 
 
 //priority & git 
-// Past dates fix the past dat
+// Past dates fix the past date
 //showing only remaining days.
 // we will focus on the styling later.
 

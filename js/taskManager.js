@@ -20,8 +20,31 @@ class TaskManager {
         };
     this.tasks.push(task);
 
+      }
+
+      // delete the task
+      deleteTask(taskId) {
+        // Create an empty array and store it in a new variable, newTasks
+        //const newTasks = [];
+
+        // Loop over the tasks
+        for (let i = 0; i < this.tasks.length; i++) {
+          // Get the current task in the loop
+          const task = this.tasks[i];
+
+          // Check if the task id is not the task id passed in as a parameter
+          if (task.id === taskId) {
+            // Push the task to the newTasks array
+            this.tasks.splice(taskId,1);
+          }
+        }
+
+        // Set this.tasks to newTasks
+        //this.tasks = newTasks;
+      }
+
    
-  }
+ 
     getTaskId(taskId) {
 
         let foundTaskId;
@@ -78,8 +101,6 @@ remainingDays(dueDate){
     
 
   return `${dueDateDay - currentDateDay} Days ${dueDateMonth - currentDateMonth} Months ${dueDateYear - currentDateYear } Years Remaining`;
-
-
 };
   
   //function to render the tasks array on the screen
@@ -98,6 +119,7 @@ remainingDays(dueDate){
       const cardCopyClone = cardCopy.cloneNode(true);
 
       cardCopyClone.children[0].innerText = `Assignee:  ${task.assignedTo} `;
+    
 
       cardCopyClone.children[1].firstElementChild.innerText = `${task.name}`;
       cardCopyClone.children[1].children[1].innerText = `${task.description}`;
@@ -114,6 +136,14 @@ remainingDays(dueDate){
       newCardPlace.appendChild(newLi);
     });
   }
+
+ /*  save()
+  {
+    if(localStorage.getItem('tasks')){
+      localStorage.removeItem('tasks');
+    }
+    const taskJson = JSON.parse()
+  } */
 
 }
 
