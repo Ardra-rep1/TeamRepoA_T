@@ -25,7 +25,7 @@ class TaskManager {
   // delete the task
   deleteTask(taskId) {
     // Create an empty array and store it in a new variable, newTasks
-    const newTasks = [];
+    // const newTasks = [];
 
     // Loop over the tasks
     for (let i = 0; i < this.tasks.length; i++) {
@@ -33,14 +33,15 @@ class TaskManager {
       const task = this.tasks[i];
 
       // Check if the task id is not the task id passed in as a parameter
-      if (task.id !== taskId) {
+      if (task.id === taskId) {
         // Push the task to the newTasks array
-        newTasks.push(task);
+       // newTasks.push(task);
+       this.tasks.splice(taskId,1);
       }
     }
 
     // Set this.tasks to newTasks
-    this.tasks = newTasks;
+   // this.tasks = newTasks;
   }
 
 
@@ -118,6 +119,7 @@ class TaskManager {
       const remainingDays = this.remainingDays(dueDate)
       const cardCopyClone = cardCopy.cloneNode(true);
 
+        
       cardCopyClone.children[0].innerText = `Assignee:  ${task.assignedTo} `;
 
 
@@ -131,9 +133,11 @@ class TaskManager {
 
       let newLi = document.createElement("li");
       newLi.appendChild(cardCopyClone);
-      newLi.className = "list-inline-item col-9";
+      newLi.className = "list-inline-item col-3 m-3";
 
       newCardPlace.appendChild(newLi);
+        
+     
     });
   }
 
@@ -149,12 +153,12 @@ class TaskManager {
    load() {
     const tasksload = localStorage.getItem('tasks');
     const tasksJson = JSON.parse(tasksload);
+
     tasksJson.map(eachTask => {
       const { name, assignedTo, description, dueDate } = eachTask;
       this.addTask(name, assignedTo, description, dueDate);
     });
-  } 
 
-
+  }   
 }
 

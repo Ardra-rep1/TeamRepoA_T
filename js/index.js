@@ -2,8 +2,10 @@
 // Initializing a new TaskManager with currentId set to 0
 let taskManager = new TaskManager(0);
 
- taskManager.load();
- taskManager.render();
+
+taskManager.load();
+taskManager.render();
+
 const newtaskForm = document.querySelector('#formId');
 const msgDisplay = document.querySelector('#alertmessage');
 msgDisplay.style.display = 'none';
@@ -38,7 +40,7 @@ newtaskForm.addEventListener('submit', (event) => {
     if (!(taskFilterResult == false)) {
 
         msgDisplay.style.display = 'none';
-        taskInputRefresh(taskName, taskDescription, taskAssignedTo, taskDueDate)
+        taskInputRefresh(taskName, taskDescription, taskAssignedTo, taskDueDate);
         taskManager.render();
         taskManager.save();
     }
