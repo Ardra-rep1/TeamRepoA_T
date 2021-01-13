@@ -1,7 +1,9 @@
 
 // Initializing a new TaskManager with currentId set to 0
-const taskManager = new TaskManager(0);
+let taskManager = new TaskManager(0);
 
+ taskManager.load();
+ taskManager.render();
 const newtaskForm = document.querySelector('#formId');
 const msgDisplay = document.querySelector('#alertmessage');
 msgDisplay.style.display = 'none';
@@ -38,9 +40,9 @@ newtaskForm.addEventListener('submit', (event) => {
         msgDisplay.style.display = 'none';
         taskInputRefresh(taskName, taskDescription, taskAssignedTo, taskDueDate)
         taskManager.render();
-
-
+        taskManager.save();
     }
+
 });
 
 
@@ -104,13 +106,14 @@ tasksList.addEventListener('click', (ev) => {
 
         //console.log(task);
         task.status = 'DONE';
+        taskManager.save();
 
 
         taskManager.render();
     }
     if (ev.target.classList.contains('delete-button')) {
 
-        
+
         const parentTask = ev.target.parentElement;
 
         const taskId = Number(parentTask.id);
@@ -120,7 +123,7 @@ tasksList.addEventListener('click', (ev) => {
         taskManager.deleteTask(taskId);
 
         // Save the tasks to localStorage
-      //  taskManager.save();
+        taskManager.save();
 
         // Render the tasks
         taskManager.render();
