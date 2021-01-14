@@ -10,7 +10,7 @@ class TaskManager {
   addTask(tName, tAssignedTo, tDescription, tDueDate) {
     const task = {
       // the currentId property
-
+      
       id: this.currentId++,
       name: tName,
       dueDate: tDueDate,
@@ -24,24 +24,23 @@ class TaskManager {
 
   // delete the task
   deleteTask(taskId) {
-    // Create an empty array and store it in a new variable, newTasks
-    // const newTasks = [];
 
-    // Loop over the tasks
+    const newTasks = [];
+
+    let j = 0;
     for (let i = 0; i < this.tasks.length; i++) {
-      // Get the current task in the loop
-      const task = this.tasks[i];
 
-      // Check if the task id is not the task id passed in as a parameter
-      if (task.id === taskId) {
-        // Push the task to the newTasks array
-       // newTasks.push(task);
-       this.tasks.splice(taskId,1);
+      const task = this.tasks[i];
+      if (task.id !== taskId) {
+        //  task.id = j;
+        newTasks.push(task);
+        j++;
+        //this.tasks.splice(taskId,1);
       }
     }
 
-    // Set this.tasks to newTasks
-   // this.tasks = newTasks;
+
+    this.tasks = newTasks;
   }
 
 
@@ -119,7 +118,7 @@ class TaskManager {
       const remainingDays = this.remainingDays(dueDate)
       const cardCopyClone = cardCopy.cloneNode(true);
 
-        
+
       cardCopyClone.children[0].innerText = `Assignee:  ${task.assignedTo} `;
 
 
@@ -136,8 +135,8 @@ class TaskManager {
       newLi.className = "list-inline-item col-3 m-3";
 
       newCardPlace.appendChild(newLi);
-        
-     
+
+
     });
   }
 
@@ -146,11 +145,12 @@ class TaskManager {
       localStorage.removeItem('tasks');
     }
     const tasksJson = JSON.stringify(this.tasks);
+    console.log(tasksJson);
     localStorage.setItem('tasks', tasksJson);
 
   }
 
-   load() {
+  load() {
     const tasksload = localStorage.getItem('tasks');
     const tasksJson = JSON.parse(tasksload);
 
@@ -158,7 +158,7 @@ class TaskManager {
       const { name, assignedTo, description, dueDate } = eachTask;
       this.addTask(name, assignedTo, description, dueDate);
     });
-
-  }   
+   
+  }
 }
 

@@ -38,7 +38,7 @@ newtaskForm.addEventListener('submit', (event) => {
     let taskFilterResult = taskFilterPush(vnc, vddc, vac, vdc);
 
     if (!(taskFilterResult == false)) {
-
+      
         msgDisplay.style.display = 'none';
         taskInputRefresh(taskName, taskDescription, taskAssignedTo, taskDueDate);
         taskManager.render();
@@ -68,6 +68,7 @@ function taskFilterPush(vnc, vddc, vac, vdc) {
 
     if (!(vnc == false) && !(vddc == false) && !(vac == false) && !(vdc == false)) {
         taskManager.addTask(taskName.value, taskAssignedTo.value, taskDescription.value, taskDueDate.value);
+      
     } else {
         return false;
     }
@@ -114,21 +115,21 @@ tasksList.addEventListener('click', (ev) => {
         taskManager.render();
     }
     if (ev.target.classList.contains('delete-button')) {
-
+     
 
         const parentTask = ev.target.parentElement;
 
         const taskId = Number(parentTask.id);
-        console.log(taskId);
+        // console.log(taskId);
         // Delete the task
 
         taskManager.deleteTask(taskId);
 
         // Save the tasks to localStorage
-        taskManager.save();
-
         // Render the tasks
         taskManager.render();
+
+        taskManager.save();
     }
 });
 
