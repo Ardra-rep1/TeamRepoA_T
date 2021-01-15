@@ -109,7 +109,7 @@ class TaskManager {
     // query selecting the task display ul
     const newCardPlace = document.querySelector("#taskDisplayList");
     const cardCopy = document.querySelector("#newtaskCard");
-    // newCardPlace.innerHTML='';
+    newCardPlace.innerHTML='';
 
     this.tasks.forEach((task) => {
 
