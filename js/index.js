@@ -2,8 +2,10 @@
 // Initializing a new TaskManager with currentId set to 0
 let taskManager = new TaskManager(0);
 
-
-taskManager.load();
+if(localStorage.getItem('tasks'))
+{
+    taskManager.load();
+}
 taskManager.render();   
 
 const newtaskForm = document.querySelector('#formId');
