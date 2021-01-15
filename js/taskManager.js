@@ -4,9 +4,9 @@ class TaskManager {
     this.tasks = [];
     this.currentId = currentId;
   }
+  
+
   // the addTask method
-
-
   addTask(tName, tAssignedTo, tDescription, tDueDate) {
     const task = {
       // the currentId property
@@ -32,15 +32,15 @@ class TaskManager {
 
       const task = this.tasks[i];
       if (task.id !== taskId) {
-        //  task.id = j;
+        
         newTasks.push(task);
+        newTasks.id=j;
         j++;
         //this.tasks.splice(taskId,1);
       }
     }
-
-
     this.tasks = newTasks;
+  
   }
 
 
@@ -109,7 +109,7 @@ class TaskManager {
     // query selecting the task display ul
     const newCardPlace = document.querySelector("#taskDisplayList");
     const cardCopy = document.querySelector("#newtaskCard");
-    newCardPlace.innerHTML = "";
+    // newCardPlace.innerHTML='';
 
     this.tasks.forEach((task) => {
 
@@ -117,7 +117,7 @@ class TaskManager {
       const formattedDate = this.dueDateFormate(dueDate);
       const remainingDays = this.remainingDays(dueDate)
       const cardCopyClone = cardCopy.cloneNode(true);
-
+      
 
       cardCopyClone.children[0].innerText = `Assignee:  ${task.assignedTo} `;
 
@@ -126,13 +126,14 @@ class TaskManager {
       cardCopyClone.children[1].children[1].innerText = `${task.description}`;
       cardCopyClone.children[1].children[2].innerText = `Status: ${task.status}`;
       cardCopyClone.children[1].children[3].id = `${task.id}`;
+      
       cardCopyClone.children[2].children[0].innerText = `Due Date: ${formattedDate} `;
       // cardCopyClone.children[2].children[1].innerText = `Remaining Days: ${remainingDays}`;
 
 
       let newLi = document.createElement("li");
       newLi.appendChild(cardCopyClone);
-      newLi.className = "list-inline-item col-3 m-3";
+      newLi.className = "list-inline-item col-3 m-3 ";
 
       newCardPlace.appendChild(newLi);
 
@@ -141,12 +142,14 @@ class TaskManager {
   }
 
   save() {
-    if (localStorage.getItem('tasks')) {
+     if (localStorage.getItem('tasks')) {
       localStorage.removeItem('tasks');
-    }
+    } 
     const tasksJson = JSON.stringify(this.tasks);
-    console.log(tasksJson);
     localStorage.setItem('tasks', tasksJson);
+    // Convert the currentId to a string;
+
+    
 
   }
 
@@ -159,6 +162,9 @@ class TaskManager {
       this.addTask(name, assignedTo, description, dueDate);
     });
    
-  }
+  }    
 }
 
+
+
+ module.exports = TaskManager;

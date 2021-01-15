@@ -4,7 +4,7 @@ let taskManager = new TaskManager(0);
 
 
 taskManager.load();
-taskManager.render();
+taskManager.render();   
 
 const newtaskForm = document.querySelector('#formId');
 const msgDisplay = document.querySelector('#alertmessage');
