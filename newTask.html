@@ -83,15 +83,15 @@
                     <span class="text-muted pull-right" id="count1">0</span>
                     <br>
                 </div>
-                <div id='alertmessage' class="alert alert-danger container" style="display:hidden; ;"></div>
+                <div id='alertmessage' class="alert alert-danger container" style="display:hidden; "></div>
                 <div class="flex-button">
                     <button type="submit" class="btn btn-success">SAVE</button>
                     <button type="button" class="btn btn-success">ADD NEXT</button>
                 </div>
         </form>
         <section class='container'>
-            <ul id="taskDisplayList" class="list-inline row" style="display:hidden">
-                <li class="list-inline-item col-9">
+            <ul id="taskDisplayList" class="list-inline hidden-list row">
+                <li class="list-inline-item  col-9">
                     <h3>Card Example </h3>
                     <div class="card text-left mt-3 text-muted " id="newtaskCard">
                         <div class="card-header h4 text-primary">
@@ -105,15 +105,14 @@
                             <span class="card-text">Status</span>
                             <span class="card-id"><button class="btn btn-success done-button">Mark As
                                     Done</button></span>
+                            <span class="card-id"><button class="btn btn-success delete-button"> Delete</button></span>
 
                         </div>
+                       
                         <div class="card-footer text-danger">
                             <span>Date will be here</span>
                             <span>Remaining Days will is here</span>
-
-
-
-
+                            
 
                         </div>
 

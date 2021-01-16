@@ -79,5 +79,10 @@ button{
     flex-wrap: wrap;
     justify-content: space-around;
     
-
 }
+
+
+.hidden-list{
+    display: block;
+}
+
