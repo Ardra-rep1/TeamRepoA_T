@@ -5,7 +5,7 @@ class TaskManager {
   }
   // the addTask method
 
-  addTask(tName, tAssignedTo, tDescription, tDueDate) {
+  addTask(tName, tAssignedTo, tDescription, tDueDate,tStatus) {
     const task = {
       // the currentId property
 
@@ -14,30 +14,106 @@ class TaskManager {
       dueDate: tDueDate,
       assignedTo: tAssignedTo,
       description: tDescription,
-      status: "TO DO",
+      status: tStatus,
     };
     this.tasks.push(task);
   }
 
-  // Function to passing the index number of the objet to the getDelete method
-  getTaskId(taskId) {
+  // Function to return the index number of the object 
+  getTaskIndex(taskId) {
     for (let i = 0; i < this.tasks.length; i++) {
       const task = this.tasks[i];
       if (task.id == taskId) {
-        console.log(i);
-        this.getDelete(i);
+        return i;
       }
     }
   }
 
   // Function to  remove the object from the tasks array
 
-  getDelete(itemIndex) {
-    this.tasks.splice(itemIndex, 1);
+  getDelete(index) {
+    
+    this.tasks.splice(index, 1);
     if (this.tasks.length < 1) {
       document.location.reload(true);
     }
   }
+
+  // Function to change the status for the Mark for done button 
+
+  setStatusForDone(objectIndex) {
+   
+   const objectSelect = this.tasks[objectIndex];
+   objectSelect.status = "DONE";
+   this.render();
+}
+
+
+//Function to change the status bar progression 
+
+  // "TODO"> TO DO </option >
+  //                   <option value="PROGRESS">PROGRESS</option>
+  //                   <option value="REVIEW">REVIEW</option>
+  //                   <option value="DONE">D
+
+  //Function to get the event
+ 
+
+
+  setProgressBar(progressBarId, statusInput){
+
+    console.log(progressBarId);
+    console.log(statusInput);
+    
+    const progressBarIdTimeout = progressBarId;
+    const statusTimeout = statusInput;
+    setTimeout(()  => {
+      
+      console.log(progressBarIdTimeout);
+      console.log(statusTimeout);
+
+    const progressBar = document.querySelector("#"+progressBarIdTimeout);
+
+    if (statusTimeout == "TO DO") {
+      progressBar.classList.remove("bg-success", "bg-warning", "bg-info");
+
+      progressBar.classList.add("bg-danger");
+      progressBar.style.width = "25%";
+    }
+
+    if (statusTimeout == "PROGRESS") {
+      progressBar.classList.remove("bg-danger", "bg-success", "bg-info")
+
+      progressBar.classList.add("bg-warning");
+      progressBar.style.width = "50%";
+    }
+
+
+    if (statusTimeout == "REVIEW") {
+      progressBar.classList.remove("bg-danger", "bg-success", "bg-warning");
+      progressBar.classList.add("bg-info");
+      progressBar.style.width = "70%";
+    }
+
+    if (statusTimeout == "DONE") {
+
+      progressBar.classList.remove("bg-danger", "bg-info", "bg-warning");
+      progressBar.classList.add("bg-success")
+      progressBar.style.width = "100%";
+
+    }
+
+  
+}, 0);
+
+}
+
+
+
+  
+
+
+
 
   // Function to formate the date
 
@@ -88,6 +164,7 @@ class TaskManager {
     newCardPlace.innerHTML = "";
 
     this.tasks.forEach((task) => {
+      // this.setStatusBar(task.status);
       const dueDate = task.dueDate;
       const formattedDate = this.dueDateFormate(dueDate);
       const remainingDays = this.remainingDays(dueDate);
@@ -98,7 +175,13 @@ class TaskManager {
       cardCopyClone.children[1].firstElementChild.innerText = `${task.name}`;
       cardCopyClone.children[1].children[1].innerText = `${task.description}`;
       cardCopyClone.children[1].children[2].innerText = `Status: ${task.status}`;
-      cardCopyClone.children[1].children[4].children[0].id = task.id;
+
+      const statusBarClone = cardCopyClone.children[1].children[3].children[0];
+      statusBarClone.id = `statusbar${task.id}`;
+
+      // cardCopyClone.children[1].children[5].children[0].id = task.id;
+
+      // cardCopyClone.children[1].children[5].children[0].id = task.id;
 
       cardCopyClone.children[2].children[0].innerText = `Due Date: ${formattedDate} `;
       cardCopyClone.children[2].children[1].innerText = `Remaining Days: ${remainingDays}`;
@@ -107,7 +190,10 @@ class TaskManager {
       newLi.appendChild(cardCopyClone);
 
       newLi.className = "list-inline-item col-9 ";
+      newLi.id = task.id;
 
+      
+      this.setProgressBar(statusBarClone.id,task.status);
       newCardPlace.appendChild(newLi);
     });
   }

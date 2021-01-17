@@ -24,7 +24,7 @@ newtaskForm.addEventListener("submit", (event) => {
   let vnc = validateInputs(taskName);
   let vddc = validateInputs(taskDueDate);
   let vac = validateInputs(taskAssignedTo);
-  validateInputs(taskStatus);
+  let vsc = validateInputs(taskStatus);
   let vdc = validateInputs(taskDescription);
 
   let taskFilterResult = taskFilterPush(vnc, vddc, vac, vdc);
@@ -63,7 +63,9 @@ function taskFilterPush(vnc, vddc, vac, vdc) {
       taskName.value,
       taskAssignedTo.value,
       taskDescription.value,
-      taskDueDate.value
+      taskDueDate.value,
+      taskStatus.value
+
     );
   } else {
     return false;
@@ -87,13 +89,31 @@ function taskInputRefresh(
 // Function declaration to event handle the  delete  button click  for removing the object from the array and re-render the array list
 
 const clickHandler = (e) => {
+
+  const indexOfItem = taskManager.getTaskIndex(e.target.parentElement.parentElement.parentElement.parentElement.id);
+ 
   if (e.target.matches(".delete-button")) {
-    taskManager.getTaskId(e.target.id);
+    console.log(e.target.parentElement.parentElement.parentElement.parentElement.id);
+    taskManager.getDelete(indexOfItem);
     taskManager.render();
   }
 
   if(e.target.matches(".done-button")){
+    
+    // const targetParent = e.target.parentElement.parentElement.parentElement.parentElement;
+    // console.log(targetParent);
+    // barElement = targetParent.children[0].children[1].children[3].children[0];
+    // barElement.id = `barid${targetParent.id}`;
+
+    // console.log(barElement);
+    // console.log(barElement.id);
+    // //console.log(e.target.parentElement.previousElementSibling.children[indexOfItem]);
+    // //const barElement = e.target.parentElement.previousElementSibling.children[0];
+    // taskManager.setStatusBar(barElement.id, "DONE")
+      taskManager.setStatusForDone(indexOfItem);
+     
       
+     // taskManager.render();
   }
 };
 
@@ -106,3 +126,19 @@ const deleteItem = document.querySelector("#taskDisplayList");
 
 // Adding event listener to the parent element which grab any event on the children by event delegation
 deleteItem.addEventListener("click", clickHandler);
+
+
+// Adding event handler for status change 
+
+// const statusChange = document.querySelector('#status');
+
+// const statusChangeHandler = (e) => {
+
+//     taskManager.setStatusBar(e.target.value);
+
+// };
+
+// statusChange.addEventListener('change',statusChangeHandler);
+
+
+
