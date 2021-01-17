@@ -137,13 +137,19 @@ class TaskManager {
       const remainingDays = this.remainingDays(dueDate);
       const cardCopyClone = cardCopy.cloneNode(true);
 
-      cardCopyClone.children[0].innerText = `Assignee:  ${task.assignedTo} `;
+      cardCopyClone.children[0].children[0].innerText = `Assignee:  ${task.assignedTo} `;
+      //cardCopyClone.children[0].children[0].children[0].innerText = "I am in ";
+     // console.log(cardCopyClone.children[0]).children[0];
+
+      cardCopyClone.children[0].children[0].children[1];
+
 
       cardCopyClone.children[1].firstElementChild.innerText = `${task.name}`;
       cardCopyClone.children[1].children[1].innerText = `${task.description}`;
       cardCopyClone.children[1].children[2].innerText = `Status: ${task.status}`;
 
       const statusBarClone = cardCopyClone.children[1].children[3].children[0];
+
       statusBarClone.id = `statusbar${task.id}`;
 
       cardCopyClone.children[2].children[0].innerText = `Due Date: ${formattedDate} `;

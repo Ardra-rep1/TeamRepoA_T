@@ -103,6 +103,11 @@ const clickHandler = (e) => {
   if (e.target.matches(".done-button")) {
     taskManager.setStatusForDone(indexOfItem);
   }
+
+  if(e.target.matches(".edit-button")){
+    console.log(e.target.classList);
+   // e.target.classList.add('')
+  }
 };
 
 //Function declaration to event handle the Mark as done click to change the status

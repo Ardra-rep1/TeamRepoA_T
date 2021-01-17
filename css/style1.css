@@ -83,7 +83,7 @@ button{
 
 
 .hidden-list{
-    display: none;
+    display: block;
 }
 
 div > span i{
