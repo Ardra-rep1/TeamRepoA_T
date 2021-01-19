@@ -47,8 +47,7 @@ class TaskManager {
   }
 
   setProgressBar(progressBarId, statusInput) {
-    console.log(progressBarId);
-    console.log(statusInput);
+   
 
     const progressBarIdTimeout = progressBarId;
     const statusTimeout = statusInput;
