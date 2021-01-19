@@ -169,6 +169,7 @@ class TaskManager {
     });
   }
 
+
   save() {
      if (localStorage.getItem('tasks')) {
       localStorage.removeItem('tasks');
@@ -191,6 +192,7 @@ class TaskManager {
     });
    
   }     
+
 }
 
 
