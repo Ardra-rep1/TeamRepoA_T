@@ -158,4 +158,6 @@ class TaskManager {
       newCardPlace.appendChild(newLi);
     });
   }
+
+  // Next task is to add edit button 
 }
