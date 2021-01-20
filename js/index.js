@@ -7,6 +7,7 @@ if(localStorage.getItem('tasks'))
 }
 taskManager.render();   
 
+let editTaskIndex ;
 const newtaskForm = document.querySelector("#formId");
 const msgDisplay = document.querySelector("#alertmessage");
 msgDisplay.style.display = "none";
@@ -156,8 +157,25 @@ const clickHandler = (e) => {
   }
 
   if(e.target.matches(".edit-button")){
-    console.log(e.target.classList);
-   // e.target.classList.add('')
+    
+    editTaskIndex = indexOfItem;
+    let returnTask = taskManager.getTask(indexOfItem);
+    console.log(returnTask);
+    const taskName = document.querySelector("#editTaskName");
+    const taskDescription = document.querySelector("#editTaskDescription");
+    const taskAssignedTo = document.querySelector("#editAssignedTo");
+    const taskStatus = document.querySelector("#editStatus");
+    const taskDueDate = document.querySelector("#editTaskDueDate");
+
+    
+
+  taskName.value = returnTask.name;
+  taskDescription.value = returnTask.description;
+  taskAssignedTo.value = returnTask.assignedTo;
+  taskStatus.value  = returnTask.status;
+  taskDueDate.value = returnTask.dueDate;
+
+    
   }
 };
 
@@ -168,3 +186,31 @@ const deleteItem = document.querySelector("#taskDisplayList");
 
 // Adding event listener to the parent element which grab any event on the children by event delegation
 deleteItem.addEventListener("click", clickHandler);
+
+
+// Adding event handler to the edit submit button 
+
+const editSubmitButton = document.querySelector('#edit-submit');
+
+editSubmitButton.addEventListener("click", () =>{
+  console.log(`I am inside edit submit button`);
+  const taskName = document.querySelector("#editTaskName");
+  const taskDescription = document.querySelector("#editTaskDescription");
+  const taskAssignedTo = document.querySelector("#editAssignedTo");
+  const taskStatus = document.querySelector("#editStatus");
+  const taskDueDate = document.querySelector("#editTaskDueDate");
+ 
+  console.log(taskManager.setTaskName(taskName.value,editTaskIndex));
+  taskManager.setTaskDescription(taskDescription.value, editTaskIndex);
+  taskManager.setTaskAssignedTo(taskAssignedTo.value, editTaskIndex);
+  taskManager.setTaskStatus(taskStatus.value, editTaskIndex);
+  console.log(taskManager.setTaskDueDate(taskDueDate.value, editTaskIndex));
+
+  taskManager.render();
+
+ 
+
+} )
+
+// function to return edit task index 
+

@@ -40,6 +40,42 @@ class TaskManager {
 
   // Function to change the status for the Mark for done button
 
+  // Function to return the object for the tasks array 
+
+  getTask(index){
+    return this.tasks[index];
+  }
+
+  // function to edit the task properties start 
+
+  
+
+  setTaskName(editName,index){
+    
+    
+    this.tasks[index].name = editName;
+  }
+
+  
+  setTaskDescription(editTaskDescription,index){
+    this.tasks[index].description= editTaskDescription;
+    console.log(this.tasks[index].description)
+  }
+  setTaskAssignedTo(editAssignee,index){
+    this.tasks[index].assignedTo = editAssignee;
+    console.log(editAssignee, index)
+  }
+  setTaskStatus(editStatus,index){
+    this.tasks[index].status = editStatus;
+  }
+  setTaskDueDate(editDate,index){
+    this.tasks[index].dueDate = editDate;
+  }
+  
+
+  // function to edit the task properties end 
+
+
   setStatusForDone(objectIndex) {
     const objectSelect = this.tasks[objectIndex];
     objectSelect.status = "DONE";
@@ -144,6 +180,9 @@ class TaskManager {
       cardCopyClone.children[0].children[0].children[1];
 
 
+      cardCopyClone.children[0].children[0].innerText = `Assignee:  ${task.assignedTo} `;
+
+      cardCopyClone.children[0].children[1];
 
       cardCopyClone.children[1].firstElementChild.innerText = `${task.name}`;
       cardCopyClone.children[1].children[1].innerText = `${task.description}`;
