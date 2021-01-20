@@ -1,5 +1,11 @@
 // Initializing a new TaskManager with currentId set to 0
-const taskManager = new TaskManager(0);
+let taskManager = new TaskManager(0);
+
+if(localStorage.getItem('tasks'))
+{
+    taskManager.load();
+}
+taskManager.render();   
 
 let editTaskIndex ;
 const newtaskForm = document.querySelector("#formId");
@@ -86,7 +92,52 @@ function taskInputRefresh(
   taskDueDate.value = "";
 }
 
-// Function declaration to event handle the  delete  button click  for removing the object from the array and re-render the array list
+const tasksList = document.querySelector('#taskDisplayList');
+tasksList.addEventListener('click', (ev) => {
+    ev.preventDefault();
+
+    if (ev.target.classList.contains('done-button')) {
+
+        const parentTask = ev.target.parentElement;
+
+
+        // console.log(parentTask);
+
+
+        const taskId = Number(parentTask.id);
+        //   console.log(taskId); correct up to this point
+
+
+        const task = taskManager.getTaskId(taskId);
+
+        /// console.log(task);
+
+        //console.log(task);
+        task.status = 'DONE';
+        taskManager.save();
+
+
+        taskManager.render();
+    }
+    if (ev.target.classList.contains('delete-button')) {
+     
+
+        const parentTask = ev.target.parentElement;
+
+        const taskId = Number(parentTask.id);
+        // console.log(taskId);
+        // Delete the task
+
+        taskManager.deleteTask(taskId);
+
+        // Save the tasks to localStorage
+        // Render the tasks
+        taskManager.render();
+
+        taskManager.save();
+    }
+});
+
 
 const clickHandler = (e) => {
   const indexOfItem = taskManager.getTaskIndex(
@@ -106,6 +157,7 @@ const clickHandler = (e) => {
   }
 
   if(e.target.matches(".edit-button")){
+
     
     editTaskIndex = indexOfItem;
     let returnTask = taskManager.getTask(indexOfItem);
@@ -125,6 +177,7 @@ const clickHandler = (e) => {
   taskDueDate.value = returnTask.dueDate;
 
     
+
   }
 };
 
