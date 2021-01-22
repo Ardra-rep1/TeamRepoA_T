@@ -27,7 +27,13 @@ newtaskForm.addEventListener("submit", (event) => {
     if (!(taskFilterResult == false)) {
         msgDisplay.style.display = "none";
         taskInputRefresh(taskName, taskDescription, taskAssignedTo, taskDueDate);
+        
+       
+       
+        location.reload();
         taskManager.render();
+
+        
     }
 });
 // function to avoid the previous date
@@ -69,7 +75,9 @@ function taskFilterPush(vnc, vddc, vac, vdc,vdda) {
         !(vdc == false) &&
         !(vdda == false)
     ) {
+        let id = taskManager.setIdToTask();
         taskManager.addTask(
+            id,
             taskName.value,
             taskAssignedTo.value,
             taskDescription.value,
@@ -197,9 +205,13 @@ function avoidPastDateEdit(data) {
         return false;
     }
 }
+
+
 window.addEventListener('load', () => {
     taskManager.unloadCartStorage();
-   
+
+   // taskManager.setCartStorage();
+    taskManager.render();
 })
 
 

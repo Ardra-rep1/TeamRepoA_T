@@ -1,13 +1,13 @@
 class TaskManager {
-  constructor(currentId = 0) {
+  constructor() {
     this.tasks = [];
-    this.currentId = currentId;
+    this.currentId;
   }
   // the addTask method
-  addTask(tName, tAssignedTo, tDescription, tDueDate, tStatus) {
+  addTask(id, tName, tAssignedTo, tDescription, tDueDate, tStatus) {
     const task = {
       // the currentId property
-      id: this.currentId++,
+      id,
       name: tName,
       dueDate: tDueDate,
       assignedTo: tAssignedTo,
@@ -32,23 +32,23 @@ class TaskManager {
       document.location.reload();
     }
   }
- 
-  // Function to return the object for the tasks array 
+
+  // Function to return the object for the tasks array
   getTask(index) {
     return this.tasks[index];
   }
-  // function to edit the task properties start 
+  // function to edit the task properties start
   setTaskName(editName, index) {
     this.tasks[index].name = editName;
-    console.log(this.tasks[index].name)
+    console.log(this.tasks[index].name);
   }
   setTaskDescription(editTaskDescription, index) {
     this.tasks[index].description = editTaskDescription;
-    console.log(this.tasks[index].description)
+    console.log(this.tasks[index].description);
   }
   setTaskAssignedTo(editAssignee, index) {
     this.tasks[index].assignedTo = editAssignee;
-    console.log(editAssignee, index)
+    console.log(editAssignee, index);
   }
   setTaskStatus(editStatus, index) {
     this.tasks[index].status = editStatus;
@@ -56,7 +56,7 @@ class TaskManager {
   setTaskDueDate(editDate, index) {
     this.tasks[index].dueDate = editDate;
   }
-  // function to edit the task properties end 
+  // function to edit the task properties end
   setStatusForDone(objectIndex) {
     const objectSelect = this.tasks[objectIndex];
     objectSelect.status = "DONE";
@@ -75,41 +75,41 @@ class TaskManager {
         // progressBar.classList.remove("bg-success", "bg-warning", "bg-info");
         //  progressBar.classList.add("bg-danger");
         progressBar.style.width = "30%";
-        progressBar.innerHTML = 'TASK TO DO';
+        progressBar.innerHTML = "TASK TO DO";
       }
       if (statusTimeout == "PROGRESS") {
         // progressBar.classList.remove("bg-danger", "bg-success", "bg-info");
         //  progressBar.classList.add("bg-warning");
         progressBar.style.width = "50%";
-        progressBar.innerHTML = 'TASK IN PROGRESS';
+        progressBar.innerHTML = "TASK IN PROGRESS";
       }
       if (statusTimeout == "REVIEW") {
         // progressBar.classList.remove("bg-danger", "bg-success", "bg-warning");
         //  progressBar.classList.add("bg-info");
         progressBar.style.width = "70%";
-        progressBar.innerHTML = 'TASK ON REVIEW';
+        progressBar.innerHTML = "TASK ON REVIEW";
       }
       if (statusTimeout == "DONE") {
         // progressBar.classList.remove("bg-danger", "bg-info", "bg-warning");
         // progressBar.classList.add("bg-success");
         progressBar.style.width = "100%";
-        progressBar.innerHTML = 'TASK IS DONE';
+        progressBar.innerHTML = "TASK IS DONE";
       }
-   }, 0);
+    }, 0);
   }
 
   // Function to formate the date
- /*  dueDateFormate(dueDate) {
-    const taskdueDate = new Date(dueDate);
-    // Format date to be dd/mm/yyyy
-    const formattedDate =
-      taskdueDate.getDate() +
-      "/" +
-      (taskdueDate.getMonth() + 1) +
-      "/" +
-      taskdueDate.getFullYear();
-    return formattedDate;
-  } */
+  /*  dueDateFormate(dueDate) {
+     const taskdueDate = new Date(dueDate);
+     // Format date to be dd/mm/yyyy
+     const formattedDate =
+       taskdueDate.getDate() +
+       "/" +
+       (taskdueDate.getMonth() + 1) +
+       "/" +
+       taskdueDate.getFullYear();
+     return formattedDate;
+   } */
   // function to return the remaining days
   remainingDays(data) {
     const todaysDate = new Date();
@@ -117,39 +117,63 @@ class TaskManager {
     const dataValue = new Date(data);
     console.log(dataValue);
     const daysRemaining = dataValue.getTime() - todaysDate.getTime();
-  
-    const mins = Math.round(daysRemaining/1000/60);
-    const hours = Math.round(mins/60);
-    let days = Math.round(hours/24);
+
+    const mins = Math.round(daysRemaining / 1000 / 60);
+    const hours = Math.round(mins / 60);
+    let days = Math.round(hours / 24);
     console.log(days);
-    days = (days == 1) ?  days + ' day' : days + ' days' ;
+    days = days == 1 ? days + " day" : days + " days";
     return days;
   }
-  // Function to unload the local storage tasks previous task 
+  // Function to unload the local storage tasks previous task
   unloadCartStorage() {
     let oldTasks = [];
-    oldTasks = JSON.parse(localStorage.getItem('cartStorage')) || [];
+    oldTasks = JSON.parse(localStorage.getItem("cartStorage")) || [];
     this.loadTask(oldTasks);
-    localStorage.removeItem('cartStorage');
+    localStorage.removeItem("cartStorage");
     oldTasks = [];
-    
   }
-  // Function to push new tasks to oldTasks array 
+
+  setIdToTask() {
+    if (localStorage.key("currentIdStore") == null) {
+      localStorage.setItem("currentIdStore", JSON.stringify(0));
+      return 0;
+    } else {
+      let nextId = Number(JSON.parse(localStorage.getItem("currentIdStore")));
+      nextId++;
+
+      localStorage.setItem("currentIdStore", JSON.stringify(nextId));
+      return nextId;
+    }
+  }
+
+  // Function to unload the local storage tasks previous task
+
+  unloadCartStorage() {
+    let oldTasks = [];
+    oldTasks = JSON.parse(localStorage.getItem("cartStorage"));
+    //localStorage.removeItem('cartStorage');
+    this.loadTask(oldTasks);
+
+    oldTasks = [];
+  }
+
+  // Function to push new tasks to oldTasks array
+
   loadTask(oldTasks) {
-    console.log(`i am inside settime out`)
-    console.log(oldTasks);
     oldTasks.forEach((task) => {
       this.tasks.push(task);
-    })
-    console.log(`i am inside laod task`)
-    console.log(this.tasks)
-  };
-  //Function to save tasks to the local storage for tasks array 
-  setCartStorage() {
-    localStorage.setItem('cartStorage', JSON.stringify(this.tasks));
-    //console.log(localStorage);
+    });
   }
-  //function to render the tasks array on the screen
+
+  //Function to save tasks to the local storage for tasks array
+
+  setCartStorage() {
+    localStorage.setItem("cartStorage", JSON.stringify(this.tasks));
+
+    console.log(localStorage);
+  }
+
   render() {
     const newCardPlace = document.querySelector("#taskDisplayList");
     const cardCopy = document.querySelector("#newtaskCard");
@@ -169,7 +193,7 @@ class TaskManager {
       const statusBarClone = cardCopyClone.children[1].children[3].children[0];
       statusBarClone.id = `statusbar${task.id}`;
       // cardCopyClone.children[2].children[0].innerText = `Due Date: ${formattedDate} `;
-      
+
       cardCopyClone.children[2].children[0].innerText = `${remainingDays}  to go`;
       let newLi = document.createElement("li");
       newLi.appendChild(cardCopyClone);
@@ -177,13 +201,11 @@ class TaskManager {
       newLi.id = task.id;
       this.setProgressBar(statusBarClone.id, task.status);
       newCardPlace.appendChild(newLi);
-
     });
   }
-
 }
 // Building a Digital Clock
-const dateTime = document.querySelector('.dateTime');
+const dateTime = document.querySelector(".dateTime");
 const tick = () => {
   const now = new Date();
 
@@ -192,15 +214,14 @@ const tick = () => {
   let s = now.getSeconds();
   let mon = now.getMonth();
 
-  const date = dateFns.format(now, 'Do MMM YYYY');
-  h = (h < 10) ? '0' + h : h;
-  m = (m < 10) ? '0' + m : m;
-  s = (s < 10) ? '0' + s : s;
+  const date = dateFns.format(now, "Do MMM YYYY");
+  h = h < 10 ? "0" + h : h;
+  m = m < 10 ? "0" + m : m;
+  s = s < 10 ? "0" + s : s;
   //console.log(h, m, s);
   const htmlDateTime = `<h3>${date}</h3> 
                 <p><span>${h}</span>:<span>${m}</span>:<span>${s}</span></p>`;
 
   dateTime.innerHTML = htmlDateTime;
-
 };
 setInterval(tick, 0);
