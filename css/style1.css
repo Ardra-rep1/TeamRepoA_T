@@ -1,70 +1,49 @@
 
-main{
+.hidden-list
+{
+    display:none;
+}
     
-    background-color: azure;
-    padding-left: 20em;
+body{
+    background :rgb(138, 138, 221);
+}
+main{
+    padding-left: 2em; 
     padding-bottom: 1em;
-    width : 75% !important;
+    width : 100% !important;
 }
 
-#exampleFormControlSelect1{
+/* #exampleFormControlSelect1{
 
-    width: 30%;
+    width: 15%;
 }
-
-.assign-field{
-    display: flex;
-    width: 40%;
-}
-form{
-    padding: 2em;
-    line-height: 3em;
-}
-
-.flex{
-    display:flex;
-    align-items: center;
-
-}
-
-.status{
-    width: 70%;
-}
-
-.text-box{
-    width: 130%;
-}
-
+ */
 footer{
+    align-items:baseline;
     min-height: 20%;
-    background-color: black;
+    background-color: rgb(135, 136, 151);
     color: white;
     text-align: center;
     margin-top: 2em;
+    height: 10vh;
 }
 
-label{
+/* label{
     margin-right: 1em;
-}
-
-.assign-date{
-    justify-content: space-between;
-}
-
-button{
-    width: 200px;
-}
-
+} */
+/* 
 .flex-button{
     display: flex;
     justify-content: space-evenly;
-} 
+}  
+ */
 
-#alertmessage{
-    width: 130%;
-}
-.done-button{
-    float:right;
+ .done-button{
+    font-size: 10px;
+    font-weight: bold;
+ }
+.addTaskBtn{
+    margin: 5px 15px;
 }
 .card-footer{
     display: flex;
@@ -73,19 +52,32 @@ button{
 }
 .delete-button
 {
-    cursor: pointer;
-    
+    cursor: pointer;  
 }
+.progress{
+    background-color: #d8d8d8;
+    height: 30px;
 
-
-.hidden-list{
-    display: block;
 }
-
-div > span i{
-
-    position: absolute;
-    right: 2em;
-    cursor: pointer;
+.progress-bar{
+    background: linear-gradient(to left,#F2709C,#FF9472);
+   /*  box-shadow: 0 3px 3px -5px #F2709C */
 }
-
+#editAlertmessage{
+    display: hidden;
+}
+.jumbotron{
+    background-color: #ddd5d8;
+    height: 30vh;
+}
+ .dateTime
+{
+    margin: 0px 15px;
+    font-size:2em;
+    color: rgb(207, 172, 76);
+    font-family:arial;
+}
+.dateTime span{
+    padding: 8px; 
+    background:rgb(187, 132, 187);
+}
