@@ -13,6 +13,9 @@ const taskAssignedTo = document.querySelector("#assignedTo");
 const taskStatus = document.querySelector("#status");
 const taskDueDate = document.querySelector("#taskDueDate");
 
+
+
+
 // Event handler to listen the submit event from the newwtask html page
 newtaskForm.addEventListener("submit", (event) => {
     event.preventDefault();
@@ -23,13 +26,10 @@ newtaskForm.addEventListener("submit", (event) => {
     let vac = validateInputs(taskAssignedTo);
     let vsc = validateInputs(taskStatus);
     let vdc = validateInputs(taskDescription);
-    let taskFilterResult = taskFilterPush(vnc, vddc, vac, vdc,vdda);
+    let taskFilterResult = taskFilterPush(vnc, vddc, vac, vdc,vdda,vsc);
     if (!(taskFilterResult == false)) {
         msgDisplay.style.display = "none";
         taskInputRefresh(taskName, taskDescription, taskAssignedTo, taskDueDate);
-        
-       
-       
         location.reload();
         taskManager.render();
 
@@ -67,13 +67,14 @@ function validateInputs(data) {
     }
 }
 // Function to add the task to the task array ( in taskManager js )
-function taskFilterPush(vnc, vddc, vac, vdc,vdda) {
+function taskFilterPush(vnc, vddc, vac, vdc,vdda,vsc) {
     if (
         !(vnc == false) &&
         !(vddc == false) &&
         !(vac == false) &&
         !(vdc == false) &&
-        !(vdda == false)
+        !(vdda == false) &&
+        !(vsc == false)
     ) {
         let id = taskManager.setIdToTask();
         taskManager.addTask(
@@ -99,23 +100,27 @@ function taskInputRefresh(
     taskDescription.value = "";
     taskAssignedTo.value = "";
     taskDueDate.value = "";
+    taskStatus.value = "";
 }
 // Function declaration to event handle the  delete  button click  for removing the object from the array and re-render the array list
 const clickHandler = (e) => {
+    
     const indexOfItem = taskManager.getTaskIndex(
         e.target.parentElement.parentElement.parentElement.parentElement.id
     );
     if (e.target.matches(".delete-button")) {
+      
          console.log(e.target.parentElement.parentElement.parentElement.parentElement.id);
         taskManager.getDelete(indexOfItem);
         taskManager.render();
     }
     if (e.target.matches(".done-button")) {
-        e.preventDefault();
+      
         taskManager.setStatusForDone(indexOfItem);
       
     }
     if (e.target.matches(".edit-button")) {
+        
         editTaskIndex = indexOfItem;
         let returnTask = taskManager.getTask(indexOfItem);
         console.log(returnTask);
@@ -165,15 +170,18 @@ editSubmitButton.addEventListener("click", () => {
         !(vddc == false) &&
         !(vac == false) &&
         !(vdc == false) &&
-        !(vdda == false)) {
+        !(vdda == false) &&
+        !(vsc == false))
+        {
         console.log(taskManager.setTaskName(taskName.value, editTaskIndex));
         taskManager.setTaskDescription(taskDescription.value, editTaskIndex);
         taskManager.setTaskAssignedTo(taskAssignedTo.value, editTaskIndex);
         taskManager.setTaskStatus(taskStatus.value, editTaskIndex);
         console.log(taskManager.setTaskDueDate(taskDueDate.value, editTaskIndex));
-
         editTaskError.style.display = "none";
-        taskInputRefresh(taskName, taskDescription, taskAssignedTo, taskDueDate);
+        const editmodalBody = document.querySelector('#editmodalBody');
+       
+        location.reload();
         taskManager.render();
       
     }
@@ -215,11 +223,33 @@ window.addEventListener('load', () => {
 })
 
 
+// Building a Digital Clock
+const dateTime = document.querySelector(".dateTime");
+const tick = () => {
+  const now = new Date();
+
+  let h = now.getHours();
+  let m = now.getMinutes();
+  let s = now.getSeconds();
+  let mon = now.getMonth();
+
+  const date = dateFns.format(now, "Do MMM YYYY");
+  h = h < 10 ? "0" + h : h;
+  m = m < 10 ? "0" + m : m;
+  s = s < 10 ? "0" + s : s;
+  //console.log(h, m, s);
+  const htmlDateTime = `<h3>${date}</h3>
+                <p><span>${h}</span>:<span>${m}</span>:<span>${s}</span></p>`;
+
+  dateTime.innerHTML = htmlDateTime;
+};
+setInterval(tick, 0); 
+
 
 //priority & git 
 
-//showing only remaining days.
-// we will focus on the styling later.
+
+
 
 // notification/ popup  for the urgent task 
 

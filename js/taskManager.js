@@ -1,6 +1,6 @@
 class TaskManager {
   constructor() {
-    this.tasks = [];
+    this.tasks = []; 
     this.currentId;
   }
   // the addTask method
@@ -33,6 +33,7 @@ class TaskManager {
     }
   }
 
+  
   // Function to return the object for the tasks array
   getTask(index) {
     return this.tasks[index];
@@ -98,19 +99,6 @@ class TaskManager {
     }, 0);
   }
 
-  // Function to formate the date
-  /*  dueDateFormate(dueDate) {
-     const taskdueDate = new Date(dueDate);
-     // Format date to be dd/mm/yyyy
-     const formattedDate =
-       taskdueDate.getDate() +
-       "/" +
-       (taskdueDate.getMonth() + 1) +
-       "/" +
-       taskdueDate.getFullYear();
-     return formattedDate;
-   } */
-  // function to return the remaining days
   remainingDays(data) {
     const todaysDate = new Date();
     console.log(todaysDate);
@@ -121,8 +109,8 @@ class TaskManager {
     const mins = Math.round(daysRemaining / 1000 / 60);
     const hours = Math.round(mins / 60);
     let days = Math.round(hours / 24);
-    console.log(days);
-    days = days == 1 ? days + " day" : days + " days";
+    // console.log(days);
+    days = (days == 1) ? days + " day" : days + " days";
     return days;
   }
   // Function to unload the local storage tasks previous task
@@ -193,35 +181,15 @@ class TaskManager {
       const statusBarClone = cardCopyClone.children[1].children[3].children[0];
       statusBarClone.id = `statusbar${task.id}`;
       // cardCopyClone.children[2].children[0].innerText = `Due Date: ${formattedDate} `;
-
-      cardCopyClone.children[2].children[0].innerText = `${remainingDays}  to go`;
+      cardCopyClone.children[2].children[0].innerText = `Task Due in ${remainingDays}`;
       let newLi = document.createElement("li");
       newLi.appendChild(cardCopyClone);
-      newLi.className = "list-inline-item col-lg-3";
+      newLi.className = "list-item col-lg-4";
       newLi.id = task.id;
       this.setProgressBar(statusBarClone.id, task.status);
       newCardPlace.appendChild(newLi);
     });
   }
 }
-// Building a Digital Clock
-const dateTime = document.querySelector(".dateTime");
-const tick = () => {
-  const now = new Date();
 
-  let h = now.getHours();
-  let m = now.getMinutes();
-  let s = now.getSeconds();
-  let mon = now.getMonth();
-
-  const date = dateFns.format(now, "Do MMM YYYY");
-  h = h < 10 ? "0" + h : h;
-  m = m < 10 ? "0" + m : m;
-  s = s < 10 ? "0" + s : s;
-  //console.log(h, m, s);
-  const htmlDateTime = `<h3>${date}</h3> 
-                <p><span>${h}</span>:<span>${m}</span>:<span>${s}</span></p>`;
-
-  dateTime.innerHTML = htmlDateTime;
-};
-setInterval(tick, 0);
+module.exports = TaskManager;

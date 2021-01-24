@@ -1,83 +1,103 @@
-
-.hidden-list
-{
-    display:none;
-}
-    
-body{
-    background :rgb(138, 138, 221);
-}
-main{
-    padding-left: 2em; 
-    padding-bottom: 1em;
-    width : 100% !important;
+body {
+  background: rgb(112, 112, 117);
 }
 
-/* #exampleFormControlSelect1{
-
-    width: 15%;
+.hidden-list {
+  display: none;
 }
- */
-footer{
-    align-items:baseline;
-    min-height: 20%;
-    background-color: rgb(135, 136, 151);
-    color: white;
-    text-align: center;
-    margin-top: 2em;
-    height: 10vh;
+
+.mtitle {
+  margin-left: 40px;
+}
+#exampleModalLabel {
+  margin-left: 140px;
+}
+#exampleModalLongTitle {
+  margin-left: 130px;
+}
+
+.edit-button {
+  float: right;
+}
+
+footer {
+  align-items: baseline;
+  min-height: 20%;
+  background-color: rgb(135, 136, 151);
+  color: white;
+  text-align: center;
+  margin-top: 2em;
+  height: 10vh;
+}
+.alertSuccess{
+    visibility: hidden;
+}
+
+
+.btnSave {
+  display: flex;
+  justify-content: space-evenly;
+}
+.btnEditSave {
+  display: flex;
+  justify-content: space-evenly;
 }
 
 /* label{
     margin-right: 1em;
 } */
-/* 
-.flex-button{
-    display: flex;
-    justify-content: space-evenly;
-}  
- */
 
- .done-button{
-    font-size: 10px;
-    font-weight: bold;
- }
-.addTaskBtn{
-    margin: 5px 15px;
+.done-button {
+  font-size: 10px;
+  font-weight: bold;
 }
-.card-footer{
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
+.addTaskBtn {
+  margin: 5px 15px;
 }
-.delete-button
-{
-    cursor: pointer;  
+.card-footer {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
 }
-.progress{
-    background-color: #d8d8d8;
-    height: 30px;
 
+
+.delete-button {
+  float: right;
+  font-size: 1rem;
+  font-weight: bold;
+  width: 40px;
+  height: 40px;
+  padding: 0px 7px;
+  cursor: pointer;
 }
-.progress-bar{
-    background: linear-gradient(to left,#F2709C,#FF9472);
-   /*  box-shadow: 0 3px 3px -5px #F2709C */
+.delete-button:hover {
+  opacity: 1;
 }
-#editAlertmessage{
+.progress {
+  background-color: #d8d8d8;
+  height: 30px;
+}
+.progress-bar {
+  background: linear-gradient(to left, #f2709c, #ff9472);
+  /*  box-shadow: 0 3px 3px -5px #F2709C */
+}
+
+.jumbotron {
+  background-color: #ddd5d8;
+  height: 30vh;
+}
+.dateTime {
+  float: right;
+  margin: 0px 15px;
+  margin-right: 20px;
+  font-size: 2em;
+  color: rgb(207, 172, 76);
+  font-family: arial;
+}
+.dateTime span {
+  padding: 8px;
+  background: rgb(187, 132, 187);
+}
+#savedChangesModal{
     display: hidden;
-}
-.jumbotron{
-    background-color: #ddd5d8;
-    height: 30vh;
-}
- .dateTime
-{
-    margin: 0px 15px;
-    font-size:2em;
-    color: rgb(207, 172, 76);
-    font-family:arial;
-}
-.dateTime span{
-    padding: 8px; 
-    background:rgb(187, 132, 187);
 }
