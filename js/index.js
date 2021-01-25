@@ -179,8 +179,6 @@ editSubmitButton.addEventListener("click", () => {
         taskManager.setTaskStatus(taskStatus.value, editTaskIndex);
         console.log(taskManager.setTaskDueDate(taskDueDate.value, editTaskIndex));
         editTaskError.style.display = "none";
-        const editmodalBody = document.querySelector('#editmodalBody');
-       
         location.reload();
         taskManager.render();
       

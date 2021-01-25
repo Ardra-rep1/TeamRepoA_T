@@ -35,8 +35,10 @@
                 </ul>
             </div>
         </nav>
-        <button type="button" class="btn btn-success addTaskBtn" style="float:right" data-toggle="modal"
-            data-target="#newTaskModal"><i class="fas fa-plus"></i> Add new task</button>
+        <!-- <button type="button" class="btn btn-success addTaskBtn" style="float:right" data-toggle="modal"
+            data-target="#newTaskModal"><i class="fas fa-plus"></i> Add new task</button> -->
+            <input type="button" value="+" class="addTaskBtn" id="insertbtn" data-toggle="modal"
+            data-target="#newTaskModal">
         <div class="jumbotron jumbotron-fluid taskTitle my-5">
             <div><span class="display-4 mtitle">Task Sheet</span><span class="dateTime"></span>
             </div>
@@ -198,7 +200,7 @@
                         <div id='editAlertmessage' class="alert alert-danger"></div>
 
                         <div class="modal-footer btnEditSave">
-                            <button type="button" id="edit-submit" class="btn btn-primary">Save Changes</button>
+                            <button type="button" id="edit-submit" class="btn btn-success">Save Changes</button>
                         </div>
                         </form>
                     </div>

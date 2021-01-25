@@ -1,7 +1,6 @@
 body {
    background: rgb(112, 112, 117); 
-  
-  background-image:no-repeat; 
+
 }
 
 .hidden-list {
@@ -57,8 +56,36 @@ body {
   cursor: pointer;
    margin: 20px;
 }
-.addTaskBtn {
+/* .addTaskBtn {
   margin: 5px 15px;
+} */
+
+.addTaskBtn {
+    position: fixed;
+    right: 30px;
+    bottom: 60px;
+    width: 50px;
+    height: 50px;
+    border: 0;
+    border-radius: 50%; 
+    margin: 0;
+    font-weight: bold;
+    font-size: 1.8rem;
+    background: var(--yellow);
+}
+.addTaskBtn:hover{
+    background: white;
+    box-shadow: var(--shadow);
+}
+
+ @media only screen and (max-width: 1024px) {
+.addTaskBtn {
+        width: 200px;
+        height: 200px;
+        font-size: 7rem; 
+      
+  } 
+
 }
 .card-footer {
   display: flex;
@@ -80,7 +107,7 @@ body {
   height: 30px;
 }
 .progress-bar {
-  background: linear-gradient(to left, #f2709c, #ff9472);
+  background: linear-gradient(to left, #da3068, #ff9472);
   /*  box-shadow: 0 3px 3px -5px #F2709C */
 }
 
