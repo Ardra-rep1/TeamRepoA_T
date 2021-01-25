@@ -2,7 +2,6 @@ body {
    background: rgb(112, 112, 117); 
 
 }
-
 .hidden-list {
   display: none;
 }
@@ -63,7 +62,9 @@ body {
   margin: 5px 15px;
 }
 .addTaskBtn {
+  
     position: fixed;
+    z-index: 3;
     right: 30px;
     bottom: 60px;
     width: 50px;
@@ -76,16 +77,16 @@ body {
     background: var(--yellow);
 }
 .addTaskBtn:hover{
-    background: white;
+    background: rgb(218, 213, 241);
     box-shadow: var(--shadow);
 }
 
  @media only screen and (max-width: 1024px) {
 .addTaskBtn {
-        width: 200px;
-        height: 200px;
-        font-size: 7rem; 
-      
+       width: 100px;
+        height: 100px;
+        font-size: 3.7rem;
+       
   } 
 
 }
@@ -122,7 +123,7 @@ body {
   margin: 0px 10px;
   margin-right: 20px;
   font-size: 2em;
-  color: rgb(207, 172, 76);
+  color:rgb(206, 187, 79);
   font-family: arial;
 }
 .dateTime span {
