@@ -48,8 +48,11 @@ footer {
 } */
 
 .done-button {
-  font-size: 10px;
+  
+  font-size: 2rem;
   font-weight: bold;
+  cursor: pointer;
+   margin: 20px;
 }
 .addTaskBtn {
   margin: 5px 15px;
@@ -65,12 +68,10 @@ footer {
   float: right;
   font-size: 1.8rem;
   font-weight: bold;
-  padding: 0px 7px;
+  padding: 0px 8px;
   cursor: pointer;
 }
-.delete-button:hover {
-  opacity: 1;
-}
+
 .progress {
   background-color: #d8d8d8;
   height: 30px;
