@@ -21,7 +21,7 @@ body {
   float: right;
 }
 
-footer {
+/* footer {
   align-items: baseline;
   min-height: 20%;
   background-color: rgb(135, 136, 151);
@@ -29,7 +29,7 @@ footer {
   text-align: center;
   margin-top: 2em;
   height: 10vh;
-}
+} */
 .alertSuccess{
     visibility: hidden;
 }
@@ -88,7 +88,7 @@ footer {
 }
 .dateTime {
   float: right;
-  margin: 0px 15px;
+  margin: 0px 10px;
   margin-right: 20px;
   font-size: 2em;
   color: rgb(207, 172, 76);
@@ -96,7 +96,7 @@ footer {
 }
 .dateTime span {
   padding: 8px;
-  background: rgb(187, 132, 187);
+  /* background: rgb(187, 132, 187); */
 }
 #savedChangesModal{
     display: hidden;
