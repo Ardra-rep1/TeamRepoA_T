@@ -137,7 +137,16 @@ const clickHandler = (e) => {
         taskDueDate.value = returnTask.dueDate;
 
     }
+  
+
 };
+const clearTaskBtn =  document.querySelector('.clearTaskBtn');
+clearTaskBtn.addEventListener('click', () => {
+    taskManager.clearTasks();
+});
+
+ 
+
 //Function declaration to event handle the Mark as done click to change the status
 // Selecting the parent element of the list
 const deleteItem = document.querySelector("#taskDisplayList");

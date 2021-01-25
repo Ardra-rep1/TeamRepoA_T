@@ -59,7 +59,9 @@ body {
 /* .addTaskBtn {
   margin: 5px 15px;
 } */
-
+.clearTaskBtn{
+  margin: 5px 15px;
+}
 .addTaskBtn {
     position: fixed;
     right: 30px;
