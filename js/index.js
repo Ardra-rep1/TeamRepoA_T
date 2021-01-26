@@ -140,7 +140,16 @@ const clickHandler = (e) => {
         taskDueDate.value = returnTask.dueDate;
 
     }
+  
+
 };
+const clearTaskBtn =  document.querySelector('.clearTaskBtn');
+clearTaskBtn.addEventListener('click', () => {
+    taskManager.clearTasks();
+});
+
+ 
+
 //Function declaration to event handle the Mark as done click to change the status
 // Selecting the parent element of the list
 const deleteItem = document.querySelector("#taskDisplayList");
@@ -182,8 +191,6 @@ editSubmitButton.addEventListener("click", () => {
         taskManager.setTaskStatus(taskStatus.value, editTaskIndex);
         console.log(taskManager.setTaskDueDate(taskDueDate.value, editTaskIndex));
         editTaskError.style.display = "none";
-        const editmodalBody = document.querySelector('#editmodalBody');
-       
         location.reload();
         taskManager.render();
       

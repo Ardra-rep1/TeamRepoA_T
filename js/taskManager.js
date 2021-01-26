@@ -32,6 +32,12 @@ class TaskManager {
       document.location.reload();
     }
   }
+  clearTasks() {
+  this.tasks = [];
+    localStorage.removeItem('cartStorage');
+  //loadTasks();
+  location.reload();
+}
 
   
   // Function to return the object for the tasks array
