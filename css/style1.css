@@ -2,6 +2,12 @@ body {
    background: rgb(112, 112, 117); 
   
   background-image:no-repeat; 
+  
+}
+
+main{
+
+   min-height: 80vh;
 }
 
 .hidden-list {
@@ -58,7 +64,10 @@ body {
    margin: 20px;
 }
 .addTaskBtn {
+  position: fixed;
   margin: 5px 15px;
+  top: 8px;
+  right:1px;
 }
 .card-footer {
   display: flex;
@@ -103,3 +112,9 @@ body {
 #savedChangesModal{
     display: hidden;
 }
+
+footer{
+  position: sticky;
+  bottom: 0px;
+}
+

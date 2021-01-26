@@ -1,6 +1,9 @@
 
 // Initializing a new TaskManager with currentId set to 0
 const taskManager = new TaskManager(0);
+let xPosition;
+let yPosition;
+let mouseisdown = true;
 let editTaskIndex;
 const newtaskForm = document.querySelector("#formId");
 const msgDisplay = document.querySelector("#alertmessage");
@@ -245,13 +248,78 @@ const tick = () => {
 };
 setInterval(tick, 0); 
 
-
-//priority & git 
-
+//Function to deactivate the past date 
 
 
+function deactivateDate(){
 
-// notification/ popup  for the urgent task 
+    let today = new Date().toISOString().split('T')[0];
+
+    document.querySelector("#taskDueDate").setAttribute('min', today);
+    document.querySelector("#editTaskDueDate").setAttribute('min',today);
+}
+
+deactivateDate();
+
+
+
+
+
+//function to register the mouse postion 
+
+
+const movingElement = document.querySelector(".addTaskBtn");
+
+
+let setbuttonposition = (event) => {
+
+    xPosition = event.clientX;
+    yPosition = event.clientY;
+
+    console.log(movingElement);
+    movingElement.style.position = "absolute";
+    movingElement.style.top = `${yPosition}px`;
+    movingElement.style.left = `${xPosition}px`;
+
+};
+
+
+let setElement = (event) => {
+
+    
+    
+        console.log(event);
+    
+        //event.preventDefault();
+    window.addEventListener('mousemove',setbuttonposition);
+    window.addEventListener('mouseup', unsetElement)
+   
+
+       
+       
+};
+
+let unsetElement = ()=>{
+
+    window.removeEventListener('mouseup',unsetElement)
+    window.removeEventListener('mousemove', setbuttonposition);
+
+    movingElement.style.position = 'fixed';
+    movingElement.style.top = `${yPosition}px`;
+    movingElement.style.left = `${xPosition}px`;
+}
+
+
+// function to move the  add button with cursor 
+document.querySelector(".addTaskBtn").addEventListener('mousedown',setElement);
+window.addEventListener('mouseup',unsetElement);
+//document.querySelector(".addTaskBtn").addEventListener('mouseup', () => {
+//     //mouseisdown =false;
+// });
+
+// let addbuttonMover() 
+    
+
 
 
 
