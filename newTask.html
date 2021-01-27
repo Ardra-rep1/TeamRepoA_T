@@ -47,6 +47,8 @@
             data-target="#newTaskModal"><i class="fas fa-plus"> Add Task</i></button>
         
             <button type="button" class="btn btn-danger clearTaskBtn" style="float:right">Delete all tasks</button>
+      
+            <button type="button" class="btn btn-danger btnDelete" style="float:right" data-toggle= "modal">Delete all tasks</button>
             <input type="button" value="+" class="addTaskBtn" id="insertbtn" data-toggle="modal" 
             data-target="#newTaskModal">
 
@@ -62,13 +64,14 @@
 
         <!-------------------------------- Model to display the new task form started  ---------------------->
            
-        <div class="alertSuccess">Hi</div>
-       <div class="modal fade" id="newTaskModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+       
+       
+        <div class="modal fade" id="newTaskModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
             aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h4 class="modal-title" id="exampleModalLabel">New Task:</h4>
+                        <h4 class="modal-title" id="exampleModalLabel">New Task</h4>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -151,8 +154,6 @@
                                     Done</button> -->
                                     <i class="far fa-check-square done-button mt-3"></i>
                                     <i class="fas fa-trash-alt delete-button mt-3"></i>
-                                        
-
                             </div>
                         </div>
                         <div class="card-footer text-danger">
@@ -178,7 +179,7 @@
                         </button>
                     </div>
                     <div class="container editmodalBody">
-
+                        <form id="editFormid">
                         <div class="form-group">
                             <label for="editTaskName">Task Name</label>
                             <input type="text" class="form-control" id="editTaskName" name="Task Name"
@@ -228,6 +229,46 @@
         </div>
 
         <!--/////////////////////////////Div to display the edit modal end/////////////////////////////////////////////////-->
+        
+        <div class="modal fade" id="deleteAllTasksModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content" id="modalTextDelete">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Delete Confirm</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Are you sure you want to delete all the tasks in the list?</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn clearTaskBtn btn-danger">Delete All</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal to show the Error -->
+        <div class="modal" tabindex="-1" role="dialog" id="modalError">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Error</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p>No Tasks here to Delete &#128512;</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    
     </main>
 
     <footer>

@@ -143,9 +143,27 @@ const clickHandler = (e) => {
   
 
 };
+const btnDelete = document.querySelector('.btnDelete');
+btnDelete.addEventListener('click',()=>{
+    if (taskManager.tasks.length < 1) {
+        const btnDelete = document.querySelector('.btnDelete');
+        btnDelete.removeAttribute('data-target', '#deleteAllTasksModal');
+        btnDelete.setAttribute('data-target', '#modalError');
+    }
+    else{
+        const btnDelete = document.querySelector('.btnDelete');
+        btnDelete.removeAttribute('data-target', '#modalError');
+        btnDelete.setAttribute('data-target', '#deleteAllTasksModal');
+        
+        
+    }
+});
+
+
 const clearTaskBtn =  document.querySelector('.clearTaskBtn');
 clearTaskBtn.addEventListener('click', () => {
-    taskManager.clearTasks();
+        taskManager.clearTasks();
+
 });
 
  

@@ -1,6 +1,5 @@
 body {
    background: rgb(112, 112, 117); 
-<<<<<<< HEAD
   
   background-image:no-repeat; 
   
@@ -10,20 +9,20 @@ main{
 
    min-height: 80vh;
 }
-=======
->>>>>>> d117e9482a3ff4421167f5eb433d9ed97ceebf08
 
-}
+
 .hidden-list {
   display: none;
 }
-
+label{
+  font-weight: bold;
+}
 .mtitle {
   margin-left: 40px;
 }
-#exampleModalLabel {
+/* #exampleModalLabel {
   margin-left: 140px;
-}
+} */
 #exampleModalLongTitle {
   margin-left: 130px;
 }
@@ -42,9 +41,6 @@ main{
   margin-top: 2em;
   height: 10vh;
 } */
-.alertSuccess{
-    visibility: hidden;
-}
 
 
 .btnSave {
@@ -67,13 +63,6 @@ main{
   cursor: pointer;
    margin: 20px;
 }
-<<<<<<< HEAD
-.addTaskBtn {
-  position: fixed;
-  margin: 5px 15px;
-  top: 8px;
-  right:1px;
-=======
 /* .addTaskBtn {
   margin: 5px 15px;
 } */
@@ -108,7 +97,6 @@ main{
        
   } 
 
->>>>>>> d117e9482a3ff4421167f5eb433d9ed97ceebf08
 }
 .card-footer {
   display: flex;
@@ -116,7 +104,11 @@ main{
   flex-wrap: wrap;
 }
 
-
+.btnDelete{
+  
+   font-size: 1rem;
+  margin: 5px 5px;
+}
 .delete-button {
   float: right;
   font-size: 1.8rem;
