@@ -5,27 +5,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
    
-    <!-- Font Awesome -->
+    <!-- Link to the Font Awesome CDN -->
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
         integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
-    <!-- Bootstrap -->
+    <!-- Link to the  Bootstrap CDN -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <!-- Stylesheet -->
+    <!-- Coustom tylesheet -->
     <link rel="stylesheet" href="css/style1.css">
     <title>New Task</title>
 </head>
 
 <body>
     <header>
+
+        <!---------------------------------  Navigation Bar HTML Started ------------------------------------- -->
         <nav class="navbar navbar-expand-sm bg-light text-muted">
-            <!-- Add the <a> below: -->
+            
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <!-- Make the follow elements into a nav component: -->
+                
                 <ul class="navbar-nav">
                     <li class="nav-item active">
                         <a href="newTask.html" class="nav-link">Home<span class="sr-only">(current)</span></a>
@@ -36,24 +38,32 @@
                 </ul>
             </div>
         </nav>
+
+        <!--///////////////////////////////  Navigation Bar HTML Started Ended//////////////////////////////  -->
+
+        <!-------------------------- Add button for adding new task  and delete all tasks------------------------>
+
         <button type="button" class="btn btn-success addTaskBtn" style="float:right" data-toggle="modal"
-            data-target="#newTaskModal" draggable="true"><i class="fas fa-plus" draggable="true"> Add Task</i></button>
-        <!-- <button type="button" class="btn btn-success addTaskBtn" style="float:right" data-toggle="modal"
-            data-target="#newTaskModal"><i class="fas fa-plus"></i> Add new task</button> -->
+            data-target="#newTaskModal"><i class="fas fa-plus"> Add Task</i></button>
+        
             <button type="button" class="btn btn-danger clearTaskBtn" style="float:right">Delete all tasks</button>
             <input type="button" value="+" class="addTaskBtn" id="insertbtn" data-toggle="modal" 
             data-target="#newTaskModal">
+
+    <!---------------------------------Jumbotron Started   ---------------------------------------------------------->
         <div class="jumbotron jumbotron-fluid taskTitle my-5">
             <div><span class="display-4 mtitle">Task Sheet</span><span class="dateTime"></span>
             </div>
         </div>
+
+        <!--//////////////////////////////////////Jumbotron End ///////////////////////////////////////// -->
     </header>
     <main>
+
+        <!-------------------------------- Model to display the new task form started  ---------------------->
            
         <div class="alertSuccess">Hi</div>
-        <!-- New Task Modal -->
-       
-        <div class="modal fade" id="newTaskModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+       <div class="modal fade" id="newTaskModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
             aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
@@ -63,6 +73,7 @@
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
+                    <!-- Modal body started  -->
                     <div class="container modal-body">
                         <form id="formId">
                             <div class="form-group">
@@ -111,6 +122,11 @@
                 </div>
             </div>
         </div>
+
+        
+<!-- //////////////////////////////////////////Model to display the new task form end///////////////////////////////////////-->
+
+    <!-- Section  to display the added task card in the list started  -->
       
         <section class='container'>
             <ul id="taskDisplayList" class="list-inline hidden-list row">
@@ -147,9 +163,10 @@
                 </li>
             </ul>
         </section>
-        <!--  Model to edit the-->
-        <!-- Button trigger modal -->
-        <!-- Modal -->
+
+        <!--/////////////////////////// Section to display  the added task card  in the list ended///////////////////// ////-->
+        
+        <!-- --------------Div to display the edit modal started ------------------------- -->
         <div class="modal fade text-center " id="exampleModalLong" tabindex="-1" role="dialog"
             aria-labelledby="exampleModalLongTitle" aria-hidden="true">
             <div class="modal-dialog" role="document">
@@ -209,6 +226,8 @@
                 </div>
             </div>
         </div>
+
+        <!--/////////////////////////////Div to display the edit modal end/////////////////////////////////////////////////-->
     </main>
 
     <footer>
