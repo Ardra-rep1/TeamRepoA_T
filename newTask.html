@@ -43,10 +43,10 @@
 
         <!-------------------------- Add button for adding new task  and delete all tasks------------------------>
 
-        <button type="button" class="btn btn-success addTaskBtn" style="float:right" data-toggle="modal"
+        <!-- <button type="button" class="btn btn-success addTaskBtn" style="float:right" data-toggle="modal"
             data-target="#newTaskModal"><i class="fas fa-plus"> Add Task</i></button>
-        
-            <button type="button" class="btn btn-danger clearTaskBtn" style="float:right">Delete all tasks</button>
+         -->
+            <!-- <button type="button" class="btn btn-danger clearTaskBtn" style="float:right">Delete all tasks</button> -->
       
             <button type="button" class="btn btn-danger btnDelete" style="float:right" data-toggle= "modal">Delete all tasks</button>
             <input type="button" value="+" class="addTaskBtn" id="insertbtn" data-toggle="modal" 
@@ -229,6 +229,8 @@
         </div>
 
         <!--/////////////////////////////Div to display the edit modal end/////////////////////////////////////////////////-->
+
+        <!------------------- Modal to display the warning to when delete all button is clicked started ------- -->
         
         <div class="modal fade" id="deleteAllTasksModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
             aria-hidden="true">
@@ -251,7 +253,10 @@
             </div>
         </div>
 
-        <!-- Modal to show the Error -->
+        <!--/////////////////////// Modal to display the warning to when delete all button is clicked End ///////////////////-->
+
+        <!------------------- Modal to display no task for delete modal start ------------------ -->
+        
         <div class="modal" tabindex="-1" role="dialog" id="modalError">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
@@ -268,6 +273,7 @@
             </div>
         </div>
 
+        <!--//////////////////////////////Modal to display no task for delete modal end ///////////////////////////////// -->
     
     </main>
 
