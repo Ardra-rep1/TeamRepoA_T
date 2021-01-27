@@ -34,11 +34,11 @@ class TaskManager {
   }
   clearTasks() {
   this.tasks = [];
-    localStorage.removeItem('cartStorage');
-  //loadTasks();
+  localStorage.removeItem('cartStorage');
   location.reload();
 }
 
+ 
   
   // Function to return the object for the tasks array
   getTask(index) {
@@ -194,6 +194,7 @@ class TaskManager {
       newLi.id = task.id;
       this.setProgressBar(statusBarClone.id, task.status);
       newCardPlace.appendChild(newLi);
+    
     });
   }
 }

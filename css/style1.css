@@ -5,13 +5,15 @@ body {
 .hidden-list {
   display: none;
 }
-
+label{
+  font-weight: bold;
+}
 .mtitle {
   margin-left: 40px;
 }
-#exampleModalLabel {
+/* #exampleModalLabel {
   margin-left: 140px;
-}
+} */
 #exampleModalLongTitle {
   margin-left: 130px;
 }
@@ -30,9 +32,6 @@ body {
   margin-top: 2em;
   height: 10vh;
 } */
-.alertSuccess{
-    visibility: hidden;
-}
 
 
 .btnSave {
@@ -96,7 +95,11 @@ body {
   flex-wrap: wrap;
 }
 
-
+.btnDelete{
+  
+   font-size: 1rem;
+  margin: 5px 5px;
+}
 .delete-button {
   float: right;
   font-size: 1.8rem;
@@ -129,7 +132,4 @@ body {
 .dateTime span {
   padding: 8px;
   /* background: rgb(187, 132, 187); */
-}
-#savedChangesModal{
-    display: hidden;
 }
