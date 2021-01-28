@@ -1,7 +1,11 @@
+
+
+
 class TaskManager {
   constructor() {
     this.tasks = []; 
-    this.currentId;
+    this.setSearchTask = [];
+    
   }
   // the addTask method
   addTask(id, tName, tAssignedTo, tDescription, tDueDate, tStatus) {
@@ -33,16 +37,24 @@ class TaskManager {
       document.location.reload();
     }
   }
+
+  // Function to clear the entire cartStorage 
   clearTasks() {
   this.tasks = [];
-  localStorage.removeItem('cartStorage');
+  //localStorage.removeItem('cartStorage');
   location.reload();
 }
-  // Function to return the object for the tasks array
+
+
+ 
+  
+  // Function to return the  task object by taking index as parameter
+
+
   getTask(index) {
     return this.tasks[index];
   }
-  // function to edit the task properties start
+  /*///////////// Function to edit the task properties Start //////////////////*/
   setTaskName(editName, index) {
     this.tasks[index].name = editName;
     console.log(this.tasks[index].name);
@@ -61,47 +73,50 @@ class TaskManager {
   setTaskDueDate(editDate, index) {
     this.tasks[index].dueDate = editDate;
   }
-  // function to edit the task properties end
+
+  // Function to  change the staus to done 
   setStatusForDone(objectIndex) {
     const objectSelect = this.tasks[objectIndex];
     objectSelect.status = "DONE";
     this.render();
   }
+
+/*///////////// Function to edit the task properties End //////////////////*/
+
+  // Function to set the progress bar in the new task card 
   setProgressBar(progressBarId, statusInput) {
-    //console.log(progressBarId);
-    //console.log(statusInput);
+    
     const progressBarIdTimeout = progressBarId;
     const statusTimeout = statusInput;
     setTimeout(() => {
-      // console.log(progressBarIdTimeout);
-      // console.log(statusTimeout);
+      
       const progressBar = document.querySelector("#" + progressBarIdTimeout);
       if (statusTimeout == "TO DO") {
-        // progressBar.classList.remove("bg-success", "bg-warning", "bg-info");
-        //  progressBar.classList.add("bg-danger");
+       
         progressBar.style.width = "30%";
         progressBar.innerHTML = "TASK TO DO";
       }
       if (statusTimeout == "PROGRESS") {
-        // progressBar.classList.remove("bg-danger", "bg-success", "bg-info");
-        //  progressBar.classList.add("bg-warning");
+        
         progressBar.style.width = "50%";
         progressBar.innerHTML = "TASK IN PROGRESS";
       }
       if (statusTimeout == "REVIEW") {
-        // progressBar.classList.remove("bg-danger", "bg-success", "bg-warning");
-        //  progressBar.classList.add("bg-info");
+        
         progressBar.style.width = "70%";
         progressBar.innerHTML = "TASK ON REVIEW";
       }
       if (statusTimeout == "DONE") {
-        // progressBar.classList.remove("bg-danger", "bg-info", "bg-warning");
-        // progressBar.classList.add("bg-success");
+        
         progressBar.style.width = "100%";
         progressBar.innerHTML = "TASK IS DONE";
       }
     }, 0);
   }
+
+
+
+  // Function to return the remaining days for the task 
 
   remainingDays(data) {
     const todaysDate = new Date();
@@ -126,6 +141,7 @@ class TaskManager {
     oldTasks = [];
   }
 
+  // Function to set the task id 
   setIdToTask() {
     if (localStorage.key("currentIdStore") == null) {
       localStorage.setItem("currentIdStore", JSON.stringify(0));
@@ -166,12 +182,50 @@ class TaskManager {
     console.log(localStorage);
   }
 
-  render() {
+  //Function to find the task 
+
+  findTask(text){
+   
+    let taskIds = [];
+   this.tasks.forEach((task)=>{
+      
+    if(task.name.includes(text)){
+      console.log(`I am task id for search ${task.id}`);
+     taskIds.push(task.id);
+      
+}
+    // return task.id;
+  });
+      return taskIds;
+   };
+    
+   //function to get the searching task array 
+  setSearch(task){
+  this.searchTaskArray =[];
+   this.searchTaskArray = task;
+   console.log(`This is array lenght for search task ${this.searchTaskArray.length}`);
+  };
+     
+  
+
+  // Function to render this.tasks array 
+
+  render(call = '') {
+
+
+
+
+   if( call == ''){
+
+   
     const newCardPlace = document.querySelector("#taskDisplayList");
     const cardCopy = document.querySelector("#newtaskCard");
     newCardPlace.classList.remove("hidden-list");
     newCardPlace.innerHTML = "";
     this.setCartStorage();
+    
+    if(this.tasks.length > 0){
+
     this.tasks.forEach((task) => {
       const dueDate = task.dueDate;
       // const formattedDate = this.dueDateFormate(dueDate);
@@ -193,8 +247,67 @@ class TaskManager {
       this.setProgressBar(statusBarClone.id, task.status);
       newCardPlace.appendChild(newLi);
     
-    });
+    })
+    } else {
+      console.log(this.tasks.length);
+      newCardPlace.innerHTML = `<div class="no-task-display"> <h1> NO TASK TO DISPLAY</h1></div>`;
+    };
+  
+  }
+if(call == 'search'){
+  
+ 
+
+  console.log(`This is inside search render ${this.searchTaskArray.length}`);
+
+  const newCardPlace = document.querySelector("#taskDisplayList");
+  const cardCopy = document.querySelector("#newtaskCard");
+  newCardPlace.classList.remove("hidden-list");
+  newCardPlace.innerHTML = "";
+  //this.setCartStorage();
+
+
+  if(this.searchTaskArray.length > 0 && this.searchTaskArray.length != null){
+
+  
+  this.searchTaskArray.forEach((task) => {
+    const dueDate = task.dueDate;
+    // const formattedDate = this.dueDateFormate(dueDate);
+    const remainingDays = this.remainingDays(dueDate);
+    const cardCopyClone = cardCopy.cloneNode(true);
+    cardCopyClone.children[0].children[0].innerText = `Assigned To:  ${task.assignedTo} `;
+    cardCopyClone.children[0].children[1];
+    cardCopyClone.children[1].firstElementChild.innerText = `${task.name}`;
+    cardCopyClone.children[1].children[1].innerText = `${task.description}`;
+    //cardCopyClone.children[1].children[2].innerText = `Status: ${task.status}`;
+    const statusBarClone = cardCopyClone.children[1].children[3].children[0];
+    statusBarClone.id = `statusbar${task.id}`;
+    // cardCopyClone.children[2].children[0].innerText = `Due Date: ${formattedDate} `;
+    cardCopyClone.children[2].children[0].innerText = `Task Due in ${remainingDays}`;
+    let newLi = document.createElement("li");
+    newLi.appendChild(cardCopyClone);
+    newLi.className = "list-item col-lg-4";
+    newLi.id = task.id;
+    this.setProgressBar(statusBarClone.id, task.status);
+    newCardPlace.appendChild(newLi);
+
+  })
+  } else{
+
+    console.log(this.tasks.length);
+    newCardPlace.innerHTML = `<div class="no-task-display"> <h1> NO RESULT FOUND , WAIT UNTILL REARRANGING TASK</h1></div>`;
+    setTimeout(()=>{
+      location.reload();
+    },2000);
+
   }
 }
 
-module.exports = TaskManager;
+
+  }
+}
+  
+
+
+
+
