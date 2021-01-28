@@ -2,6 +2,8 @@
 const taskManager = new TaskManager(0);
 let xPosition;
 let yPosition;
+setInterval(tick, 0);
+
 
 let editTaskIndex;
 const newtaskForm = document.querySelector("#formId");
@@ -313,5 +315,4 @@ document.querySelector(".search-task").addEventListener("keyup",(event) =>{
 
   
 })
-setInterval(tick, 0);
 
