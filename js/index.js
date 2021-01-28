@@ -262,7 +262,7 @@ function mousedown(e) {
 }
 }
 // Building a Digital Clock
-const dateTime = document.getElementsByClassName("dateTime");
+const dateTime = document.document.querySelector(".dateTime");
 const tick = () => {
   const now = new Date();
 
