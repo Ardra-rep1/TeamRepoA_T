@@ -38,7 +38,7 @@
         </nav>
       
             <button type="button" class="btn btn-danger btnDelete" style="float:right" data-toggle= "modal">Delete all tasks</button>
-            <input type="button" value="+" class="addTaskBtn" id="insertbtn" data-toggle="modal" 
+            <input type="button" value="+" class="addTaskBtn" data-toggle="modal" 
             data-target="#newTaskModal">
         <div class="jumbotron jumbotron-fluid taskTitle my-5">
             <div><span class="display-4 mtitle">Task Sheet</span><span class="dateTime"></span>
@@ -46,9 +46,6 @@
         </div>
     </header>
     <main>
-           
-       
-       
         <div class="modal fade" id="newTaskModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
             aria-hidden="true">
             <div class="modal-dialog" role="document">
@@ -113,7 +110,7 @@
                 <li class="list-item  col-lg-4">
                     <h3>Card Example </h3>
                     <div class="card text-left mt-4 text-muted" id="newtaskCard">
-                        <div class="card-header h4 text-primary">
+                        <div class="card-header h4" id="labelAssignedTo">
                             <span>Task Assigned To: </span>
                             <span><i class="fas fa-edit edit-button" type="button" data-toggle="modal"
                                     data-target="#exampleModalLong"></i></span>
@@ -156,7 +153,7 @@
                     </div>
                     <div class="container editmodalBody">
                         <form id="editFormid">
-                        <div class="form-group">
+                        <div class="form-row">
                             <label for="editTaskName">Task Name</label>
                             <input type="text" class="form-control" id="editTaskName" name="Task Name"
                                 placeholder="Task Name">
@@ -178,7 +175,7 @@
                                     min="2020-12-17" max="2021-12-31">
                             </div>
                         </div>
-                        <div class="form-group">
+                        <div class="form-row">
                             <label for="status"> Status </label>
                             <select class="form-control" id="editStatus" name="Status">
                                 <option value="">Choose the Task Status</option>
@@ -188,7 +185,7 @@
                                 <option value="DONE">DONE </option>
                             </select>
                         </div>
-                        <div class="form-group">
+                        <div class="form-row">
                             <label for="newTaskDescription">Task Description</label>
                             <textarea class="form-control" id="editTaskDescription" name="Task Description" rows="3"
                                 placeholder="Description"> </textarea>
@@ -236,7 +233,7 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        <p>No Tasks here to Delete &#128512;</p>
+                        <p>No Tasks in the list to Delete &#128512;</p>
                     </div>
                 </div>
             </div>

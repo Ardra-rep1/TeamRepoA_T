@@ -15,6 +15,7 @@ class TaskManager {
       status: tStatus,
     };
     this.tasks.push(task);
+    location.reload();
   }
   // Function to return the index number of the object
   getTaskIndex(taskId) {
@@ -37,9 +38,6 @@ class TaskManager {
   localStorage.removeItem('cartStorage');
   location.reload();
 }
-
- 
-  
   // Function to return the object for the tasks array
   getTask(index) {
     return this.tasks[index];
