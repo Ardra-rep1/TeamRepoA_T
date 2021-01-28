@@ -19,6 +19,7 @@ class TaskManager {
       status: tStatus,
     };
     this.tasks.push(task);
+    location.reload();
   }
   // Function to return the index number of the object
   getTaskIndex(taskId) {
@@ -44,9 +45,12 @@ class TaskManager {
   location.reload();
 }
 
+
  
   
   // Function to return the  task object by taking index as parameter
+
+
   getTask(index) {
     return this.tasks[index];
   }

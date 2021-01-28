@@ -1,3 +1,4 @@
+
 *{
   margin: 0em;
   padding: 0em;
@@ -5,19 +6,23 @@
   
 }
 
-
-
-body {
-   background: rgb(112, 112, 117); 
-  
-  background-image:no-repeat; 
-  
-}
-
 main{
 
    min-height: 80vh;
 }
+
+/* global variables */
+:root{
+   --mainfont: Segoe UI;
+   --shadow: 2px 2px 2px black;
+    --grey: #d6d6d6;
+   
+}
+body {
+   background: rgb(112, 112, 117); 
+   font-family: var(--mainfont);
+}
+
 
 
 .hidden-list {
@@ -29,12 +34,12 @@ label{
 .mtitle {
   margin-left: 40px;
 }
-/* #exampleModalLabel {
+ #exampleModalLabel {
   margin-left: 140px;
-} */
-#exampleModalLongTitle {
-  margin-left: 130px;
 }
+ #exampleModalLongTitle {
+  margin-left: 130px;
+} 
 
 .edit-button {
   color:grey;
@@ -50,7 +55,9 @@ label{
   margin-top: 2em;
   height: 10vh;
 } */
-
+#labelAssignedTo{
+  color:rgb(65, 121, 158);
+}
 
 .btnSave {
   display: flex;
@@ -91,13 +98,15 @@ label{
     border-radius: 50%; 
     margin: 0;
     font-weight: bold;
-    font-size: 1.8rem;
+    font-size: 2rem;
     background: var(--yellow);
 }
 .addTaskBtn:hover{
     background: rgb(218, 213, 241);
     box-shadow: var(--shadow);
+
 }
+
 
  @media only screen and (max-width: 1024px) {
 .addTaskBtn {
@@ -117,7 +126,7 @@ label{
 .btnDelete{
   
    font-size: 1rem;
-  margin: 5px 5px;
+  margin: 3px 5px;
 }
 .delete-button {
   float: right;
@@ -125,6 +134,13 @@ label{
   font-weight: bold;
   padding: 0px 8px;
   cursor: pointer;
+}
+.btnDelete:hover{
+  opacity:1;
+}
+.btn {
+    padding: 0.5rem 1rem;
+     border: 0;
 }
 
 .progress {
@@ -145,11 +161,15 @@ label{
   margin: 0px 10px;
   margin-right: 20px;
   font-size: 2em;
-  color:rgb(206, 187, 79);
+  color:rgb(65, 89, 141);
   font-family: arial;
 }
+.dateTime p{
+    font-size: 20px;
+    float:right;
+}
 .dateTime span {
-  padding: 8px;
+  padding: 0px;
   /* background: rgb(187, 132, 187); */
 }
 #savedChangesModal{
