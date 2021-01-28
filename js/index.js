@@ -2,7 +2,7 @@
 const taskManager = new TaskManager(0);
 let xPosition;
 let yPosition;
-setInterval(tick, 0);
+
 
 
 let editTaskIndex;
@@ -262,7 +262,7 @@ function mousedown(e) {
 }
 }
 // Building a Digital Clock
-const dateTime = document.querySelector(".dateTime");
+const dateTime = document.getElementsByClassName("dateTime");
 const tick = () => {
   const now = new Date();
 
@@ -281,6 +281,7 @@ const tick = () => {
 
   dateTime.innerHTML = htmlDateTime;
 };
+setInterval(tick, 0);
 
 // Function for search 
 document.querySelector(".search-task").addEventListener("keyup",(event) =>{
