@@ -226,14 +226,13 @@ setInterval(tick, 0);
 
 //Function to deactivate the past date
 
-function deactivateDate() {
+ function deactivateDate() {
   let today = new Date().toISOString().split("T")[0];
 
   document.querySelector("#taskDueDate").setAttribute("min", today);
   document.querySelector("#editTaskDueDate").setAttribute("min", today);
 }
-
-deactivateDate();
+deactivateDate(); 
 
 //Funtion to create a dragable button
 

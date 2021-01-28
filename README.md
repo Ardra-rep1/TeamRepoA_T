@@ -21,6 +21,7 @@ Main file for this project is newTask.html file, the JavaScript for this project
 - Font Awesome
 - Date Fns Library
 
+
 **How Task Planner Application Works**
 
  How to add a Task ?
@@ -31,9 +32,9 @@ Main file for this project is newTask.html file, the JavaScript for this project
 
  How to edit Tasks?
 
- Edit icon on the Task Card will enable to edit any task on the list. 
+ Edit icon on the Task Card will enable to edit tasks on the list. 
 
-
+There is also a **Task Search bar** on the top of the page where we can search the task by name.
 
 ## Things to improve
 

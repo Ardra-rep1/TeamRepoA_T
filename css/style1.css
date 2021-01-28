@@ -46,15 +46,6 @@ label{
   float: right;
 }
 
-/* footer {
-  align-items: baseline;
-  min-height: 20%;
-  background-color: rgb(135, 136, 151);
-  color: white;
-  text-align: center;
-  margin-top: 2em;
-  height: 10vh;
-} */
 #labelAssignedTo{
   color:rgb(65, 121, 158);
 }
@@ -68,9 +59,6 @@ label{
   justify-content: space-evenly;
 }
 
-/* label{
-    margin-right: 1em;
-} */
 
 .done-button {
 
@@ -199,6 +187,10 @@ i{
 i:hover{
   color: green;
 }
+.delete-button:hover {
+  color: red !important;
+} 
+
 
 .search-task{
   height: 3em;

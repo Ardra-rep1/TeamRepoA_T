@@ -43,13 +43,10 @@
 
         <!-------------------------- Add button for adding new task  and delete all tasks------------------------>
 
-        <!-- <button type="button" class="btn btn-success addTaskBtn" style="float:right" data-toggle="modal"
-            data-target="#newTaskModal"><i class="fas fa-plus"> Add Task</i></button>
-         -->
-            <!-- <button type="button" class="btn btn-danger clearTaskBtn" style="float:right">Delete all tasks</button> -->
+       
       
             <button type="button" class="btn btn-danger btnDelete" style="float:right" data-toggle= "modal">Delete all tasks</button> 
-            <input type="text" class="search-task" >
+            <input type="text" class="search-task" placeholder="Search for your Task here" >
            
                 <input type="button" value="+" class="addTaskBtn"  data-target="#newTaskModal">
 
@@ -101,7 +98,7 @@
                                 <div class="form-group col">
                                     <label for="taskDueDate">Task Due Date</label>
                                     <input type="date" class="form-control" id="taskDueDate" name="Due Date"
-                                        class="datepicker" min="2020-12-17" max="2021-12-31">
+                                        class="datepicker" min="2020-12-17">
                                 </div>
                             </div>
                             <div class="form-group">
@@ -153,8 +150,7 @@
                                     aria-valuemax="100"></div>
                             </div>
                             <div class="card-id">
-                              <!--   <button class="btn btn-xs btn-success done-button mt-2 ">Mark As
-                                    Done</button> -->
+                            
                                     <i class="far fa-check-square done-button mt-3"></i>
                                     <i class="fas fa-trash-alt delete-button mt-3"></i>
                             </div>
@@ -202,7 +198,7 @@
                             <div class="form-group col">
                                 <label for="editTaskDueDate">Task Due Date</label>
                                 <input type="date" id="editTaskDueDate" name="Due Date" class="form-control datepicker"
-                                    min="2020-12-17" max="2021-12-31">
+                                    min="2020-12-17">
                             </div>
                         </div>
                         <div class="form-row">
