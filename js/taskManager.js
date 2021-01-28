@@ -289,10 +289,29 @@ if(call == 'search'){
 
   }
 }
-
-
   }
 }
+// Building a Digital Clock
+const dateTime = document.document.querySelector(".dateTime");
+const tick = () => {
+  const now = new Date();
+
+  let h = now.getHours();
+  let m = now.getMinutes();
+  let s = now.getSeconds();
+  let mon = now.getMonth();
+
+  const date = dateFns.format(now, "Do MMM YYYY");
+  h = h < 10 ? "0" + h : h;
+  m = m < 10 ? "0" + m : m;
+  s = s < 10 ? "0" + s : s;
+  //console.log(h, m, s);
+  const htmlDateTime = `<h3>${date}</h3>
+                <p><span>${h}</span>:<span>${m}</span>:<span>${s}</span></p>`;
+
+  dateTime.innerHTML = htmlDateTime;
+};
+setInterval(tick, 0);
   
 
 
