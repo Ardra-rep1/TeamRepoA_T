@@ -282,12 +282,9 @@ function mousedown(e) {
 }
 
 // Function for search 
-
-
-
 document.querySelector(".search-task").addEventListener("keyup",(event) =>{
    
-  //if( event.keyCode == 13){
+ // if( event.keyCode == 13){
     //location.reload();
     
     let searchTaskArray = [];

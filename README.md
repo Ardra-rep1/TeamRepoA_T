@@ -5,7 +5,7 @@
 This is a Task Planner web app Created by Tek Bam and Ardra Ashok as an assignment for the **Generation Australias** Webdevelopment Bootcamp Final project
 
 The main Objective Of our **Task Planner App** is to add a task including the details of the task like name of the task, the person whom the task is assigned to, description of the task, Task Duedate and  to update task status as we proceed through the different stages (todo, on review, in progress, taskDone) of the task. We followed **Agile Scrum Methodology** for our TaskPlanner project.
-Main file for this project is newTask.html file, the JavaScript for this projects are taskManager.js and index.js file and the CSS stylesheet for this project is in style1.css file.
+Main file for this project is index.html file, the JavaScript for this projects are taskManager.js and index.js file and the CSS stylesheet for this project is in style1.css file.
 
 ## Languages used:  
 - Vanilla JavaScript, 
@@ -42,6 +42,7 @@ There is also a **Task Search bar** on the top of the page where we can search t
 2. Priority based sorting of tasks
 3. Tasks Rendering on another page
 4. Browser Testing 
+5. Code Refactoring
 
 
 

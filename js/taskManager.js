@@ -1,6 +1,3 @@
-
-
-
 class TaskManager {
   constructor() {
     this.tasks = []; 
@@ -44,13 +41,7 @@ class TaskManager {
   //localStorage.removeItem('cartStorage');
   location.reload();
 }
-
-
- 
-  
   // Function to return the  task object by taking index as parameter
-
-
   getTask(index) {
     return this.tasks[index];
   }
@@ -211,13 +202,9 @@ class TaskManager {
   // Function to render this.tasks array 
 
   render(call = '') {
-
-
-
-
    if( call == ''){
 
-   
+    
     const newCardPlace = document.querySelector("#taskDisplayList");
     const cardCopy = document.querySelector("#newtaskCard");
     newCardPlace.classList.remove("hidden-list");
